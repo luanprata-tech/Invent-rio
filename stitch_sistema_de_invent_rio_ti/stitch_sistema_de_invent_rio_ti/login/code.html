@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_blank" name="shell-type"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary": "#4059aa",
+          "primary-fixed": "#d1e4ff",
+          "on-tertiary": "#ffffff",
+          "tertiary-fixed": "#cce5ff",
+          "surface": "#f8f9ff",
+          "surface-variant": "#d5e3fd",
+          "inverse-surface": "#233144",
+          "tertiary-container": "#002a44",
+          "background": "#f8f9ff",
+          "outline-variant": "#c3c6ce",
+          "on-error": "#ffffff",
+          "on-error-container": "#93000a",
+          "secondary-fixed-dim": "#b6c4ff",
+          "on-primary-fixed": "#011d35",
+          "on-tertiary-fixed-variant": "#004b73",
+          "surface-dim": "#ccdbf4",
+          "on-tertiary-fixed": "#001d31",
+          "on-primary-fixed-variant": "#314863",
+          "primary": "#001428",
+          "secondary-fixed": "#dce1ff",
+          "outline": "#74777e",
+          "on-secondary-fixed": "#00164e",
+          "surface-container-lowest": "#ffffff",
+          "on-surface-variant": "#43474d",
+          "tertiary": "#001524",
+          "inverse-on-surface": "#ebf1ff",
+          "on-secondary": "#ffffff",
+          "surface-container-low": "#eff4ff",
+          "on-primary-container": "#7991af",
+          "surface-bright": "#f8f9ff",
+          "error-container": "#ffdad6",
+          "on-secondary-container": "#1d3989",
+          "on-tertiary-container": "#2e95da",
+          "inverse-primary": "#b0c9e8",
+          "tertiary-fixed-dim": "#93ccff",
+          "surface-container-high": "#dde9ff",
+          "on-surface": "#0d1c2f",
+          "secondary-container": "#8fa7fe",
+          "surface-container-highest": "#d5e3fd",
+          "error": "#ba1a1a",
+          "primary-fixed-dim": "#b0c9e8",
+          "on-secondary-fixed-variant": "#264191",
+          "primary-container": "#0f2942",
+          "on-primary": "#ffffff",
+          "surface-container": "#e6eeff",
+          "surface-tint": "#49607c",
+          "on-background": "#0d1c2f"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-md": "0.75rem",
+          "space-lg": "1rem",
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem",
+          "gutter-desktop": "1.5rem",
+          "space-xl": "1.5rem",
+          "gutter": "1rem",
+          "margin": "1rem",
+          "margin-desktop": "2rem"
+        },
+        "fontFamily": {
+          "body-md": ["Inter"],
+          "display": ["Public Sans"],
+          "label-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Public Sans"],
+          "headline-lg": ["Public Sans"],
+          "code-sm": ["JetBrains Mono"],
+          "label-sm": ["Inter"],
+          "headline-sm": ["Public Sans"],
+          "headline-lg-mobile": ["Public Sans"],
+          "body-lg": ["Inter"],
+          "code-md": ["JetBrains Mono"]
+        },
+        "fontSize": {
+          "body-md": ["0.875rem", {"lineHeight": "1.25rem", "fontWeight": "400"}],
+          "display": ["2rem", {"lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "label-md": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "600"}],
+          "body-sm": ["0.75rem", {"lineHeight": "1rem", "fontWeight": "400"}],
+          "headline-md": ["1.125rem", {"lineHeight": "1.5rem", "fontWeight": "600"}],
+          "headline-lg": ["1.5rem", {"lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "code-sm": ["0.6875rem", {"lineHeight": "0.875rem", "fontWeight": "500"}],
+          "label-sm": ["0.6875rem", {"lineHeight": "0.875rem", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "headline-sm": ["1rem", {"lineHeight": "1.375rem", "fontWeight": "600"}],
+          "headline-lg-mobile": ["1.25rem", {"lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-lg": ["1rem", {"lineHeight": "1.5rem", "fontWeight": "400"}],
+          "code-md": ["0.8125rem", {"lineHeight": "1.125rem", "fontWeight": "500"}]
+        }
+      }
+    }
+  }</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex min-h-screen items-center justify-center p-gutter"><main class="w-full max-w-md"><div class="flex flex-col w-full">
+<div class="bg-surface-container-lowest shadow-xl rounded-xl p-space-xl flex flex-col gap-space-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary-container"></div>
+
+
+
+<form class="flex flex-col gap-space-md" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-space-md" id="section-ldap">
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface" for="username">Usuário / Matrícula</label><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-headline-sm select-none">person</span><input class="w-full h-11 pl-10 pr-3 bg-surface-container-low rounded font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none focus:bg-surface-container-lowest transition-colors" id="username" placeholder="ex: usuario.sobrenome ou matrícula" type="text" autocomplete="username" required=""></div></div>
+<div class="flex flex-col gap-1.5"><div class="flex justify-between items-center"><label class="font-label-md text-label-md text-on-surface" for="password">Senha</label></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-headline-sm select-none">lock</span><input class="w-full h-11 pl-10 pr-10 bg-surface-container-low rounded font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none focus:bg-surface-container-lowest transition-colors" id="password" placeholder="••••••••••••" type="password" autocomplete="current-password" required=""><button class="absolute right-3 text-outline hover:text-on-surface" onclick="const p = document.getElementById('password'); p.type = p.type === 'password' ? 'text' : 'password';" type="button"><span class="material-symbols-outlined text-headline-sm">visibility</span></button></div></div>
+</div>
+
+
+<div class="flex flex-col gap-space-sm pt-space-xs"><button class="w-full h-11 bg-primary text-on-primary hover:bg-primary-container rounded font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow transition-all active:scale-[0.99]" type="submit"><span class="material-symbols-outlined text-headline-sm">login</span><span class="">Acessar Sistema</span></button></div>
+</form>
+
+</div>
+<div class="flex items-center justify-center gap-4 py-space-md text-on-surface-variant font-code-sm text-code-sm">
+<span class="">SIGPAT-TI v4.12.0</span>
+<span class="">•</span>
+<span class="">SLA 99.98%</span>
+<span class="">•</span>
+<span class="">Zona Segura DMZ-01</span>
+</div>
+<script>
+    const tabLdap = document.getElementById('tab-ldap');
+    const tabGovbr = document.getElementById('tab-govbr');
+    const secLdap = document.getElementById('section-ldap');
+    const secGovbr = document.getElementById('section-govbr');
+
+    tabLdap.addEventListener('click', () => {
+      tabLdap.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+      tabLdap.classList.remove('text-on-surface-variant');
+      tabGovbr.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+      tabGovbr.classList.add('text-on-surface-variant');
+      secLdap.classList.remove('hidden');
+      secGovbr.classList.add('hidden');
+    });
+
+    tabGovbr.addEventListener('click', () => {
+      tabGovbr.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+      tabGovbr.classList.remove('text-on-surface-variant');
+      tabLdap.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+      tabLdap.classList.add('text-on-surface-variant');
+      secGovbr.classList.remove('hidden');
+      secGovbr.classList.add('flex');
+      secLdap.classList.add('hidden');
+    });
+
+    const mfaInputs = document.querySelectorAll('.mfa-digit');
+    mfaInputs.forEach((input, idx) => {
+      input.addEventListener('input', (e) => {
+        if (e.target.value.length === 1 && idx < mfaInputs.length - 1) {
+          mfaInputs[idx + 1].focus();
+        }
+      });
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+          mfaInputs[idx - 1].focus();
+        }
+      });
+    });
+  </script>
+</div></main>
+
+
+
+</body></html>

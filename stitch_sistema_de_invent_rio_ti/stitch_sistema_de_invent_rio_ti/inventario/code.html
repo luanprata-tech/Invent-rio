@@ -1,0 +1,708 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary": "#4059aa",
+          "primary-fixed": "#d1e4ff",
+          "on-tertiary": "#ffffff",
+          "tertiary-fixed": "#cce5ff",
+          "surface": "#f8f9ff",
+          "surface-variant": "#d5e3fd",
+          "inverse-surface": "#233144",
+          "tertiary-container": "#002a44",
+          "background": "#f8f9ff",
+          "outline-variant": "#c3c6ce",
+          "on-error": "#ffffff",
+          "on-error-container": "#93000a",
+          "secondary-fixed-dim": "#b6c4ff",
+          "on-primary-fixed": "#011d35",
+          "on-tertiary-fixed-variant": "#004b73",
+          "surface-dim": "#ccdbf4",
+          "on-tertiary-fixed": "#001d31",
+          "on-primary-fixed-variant": "#314863",
+          "primary": "#001428",
+          "secondary-fixed": "#dce1ff",
+          "outline": "#74777e",
+          "on-secondary-fixed": "#00164e",
+          "surface-container-lowest": "#ffffff",
+          "on-surface-variant": "#43474d",
+          "tertiary": "#001524",
+          "inverse-on-surface": "#ebf1ff",
+          "on-secondary": "#ffffff",
+          "surface-container-low": "#eff4ff",
+          "on-primary-container": "#7991af",
+          "surface-bright": "#f8f9ff",
+          "error-container": "#ffdad6",
+          "on-secondary-container": "#1d3989",
+          "on-tertiary-container": "#2e95da",
+          "inverse-primary": "#b0c9e8",
+          "tertiary-fixed-dim": "#93ccff",
+          "surface-container-high": "#dde9ff",
+          "on-surface": "#0d1c2f",
+          "secondary-container": "#8fa7fe",
+          "surface-container-highest": "#d5e3fd",
+          "error": "#ba1a1a",
+          "primary-fixed-dim": "#b0c9e8",
+          "on-secondary-fixed-variant": "#264191",
+          "primary-container": "#0f2942",
+          "on-primary": "#ffffff",
+          "surface-container": "#e6eeff",
+          "surface-tint": "#49607c",
+          "on-background": "#0d1c2f"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-md": "0.75rem",
+          "space-lg": "1rem",
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem",
+          "gutter-desktop": "1.5rem",
+          "space-xl": "1.5rem",
+          "gutter": "1rem",
+          "margin": "1rem",
+          "margin-desktop": "2rem"
+        },
+        "fontFamily": {
+          "body-md": ["Inter"],
+          "display": ["Public Sans"],
+          "label-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Public Sans"],
+          "headline-lg": ["Public Sans"],
+          "code-sm": ["JetBrains Mono"],
+          "label-sm": ["Inter"],
+          "headline-sm": ["Public Sans"],
+          "headline-lg-mobile": ["Public Sans"],
+          "body-lg": ["Inter"],
+          "code-md": ["JetBrains Mono"]
+        },
+        "fontSize": {
+          "body-md": ["0.875rem", {"lineHeight": "1.25rem", "fontWeight": "400"}],
+          "display": ["2rem", {"lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "label-md": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "600"}],
+          "body-sm": ["0.75rem", {"lineHeight": "1rem", "fontWeight": "400"}],
+          "headline-md": ["1.125rem", {"lineHeight": "1.5rem", "fontWeight": "600"}],
+          "headline-lg": ["1.5rem", {"lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "code-sm": ["0.6875rem", {"lineHeight": "0.875rem", "fontWeight": "500"}],
+          "label-sm": ["0.6875rem", {"lineHeight": "0.875rem", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "headline-sm": ["1rem", {"lineHeight": "1.375rem", "fontWeight": "600"}],
+          "headline-lg-mobile": ["1.25rem", {"lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-lg": ["1rem", {"lineHeight": "1.5rem", "fontWeight": "400"}],
+          "code-md": ["0.8125rem", {"lineHeight": "1.125rem", "fontWeight": "500"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 flex items-center px-space-lg gap-space-sm bg-surface-container-lowest border-b border-surface-container/60"><img alt="SIGPAT-TI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W2naDeUOfc7Z_mLq3dwNm1s3JGv_6JZ9Fo2HEBjmqb_2iDiOiOueFTjqfOf8dbKI0sWb4mVrRk20ivix2Tc_xZv1hcAJcA8pbvNLqfqsAgezq1jG7T0uGbcGlhPBZbHMgrK8V-yHbhPKjkULbfjLUJAc7yUp3SXI4WvdPlmnujENPfY6zyGX-XtiHqmmaTXrAsM3yCmUPDf2WL6-11foMiTui_tqZxSYOJ9F6HmvScXnrq1v6461GsS-A"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight leading-none">SIGPAT·TI</span><span class="font-code-sm text-code-sm text-on-surface-variant font-medium mt-0.5">Gov. Patrimônio &amp; IPAM</span></div></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs bg-surface-container-low rounded-lg flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Rede Operacional</span></div></div><nav class="flex-1 px-space-md py-space-xs flex flex-col gap-space-xs overflow-y-auto"><a class="group flex items-center justify-between px-space-md py-space-md rounded-lg bg-primary text-on-primary font-semibold shadow-sm transition-all" data-path="inventario-geral-e-patrimonio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">devices</span><span class="font-body-md text-body-md">Inventário Geral</span></div><span class="font-code-sm text-code-sm bg-white/20 px-space-xs py-0.5 rounded text-white">1.482</span></a><a class="group flex items-center justify-between px-space-md py-space-md rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="gestao-de-ips-e-ipam" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">lan</span><span class="font-body-md text-body-md font-medium">Gestão IPAM</span></div><span class="font-code-sm text-code-sm bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface-variant">24 Subnets</span></a><a class="group flex items-center justify-between px-space-md py-space-md rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="logs-de-auditoria-e-conformidade" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">verified_user</span><span class="font-body-md text-body-md font-medium">Auditoria &amp; Logs</span></div></a></nav></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-lg"></div><div class="flex items-center gap-space-lg"><div class="relative"><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors flex items-center justify-center" title="Notificações e Alertas" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></button></div><div class="h-8 w-px bg-outline-variant/30"></div><div class="flex items-center gap-space-md"><div class="flex flex-col text-right"><div class="flex items-center justify-end gap-1.5"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight font-semibold">Carlos Eduardo Mendonça</span><span class="px-1.5 py-0.5 rounded bg-primary text-on-primary font-code-sm text-[10px] font-bold uppercase tracking-wider">Administrador</span></div><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Perfil: Administrador • Suporte TI</span></div><div class="w-8 h-8 rounded-full bg-primary text-on-primary font-semibold text-xs flex items-center justify-center select-none ring-1 ring-outline-variant" title="Carlos Mendonça (Administrador)">CM</div></div></div></header><main class="relative pt-16 bg-surface min-h-screen px-gutter-desktop py-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-secondary font-code-sm text-code-sm uppercase tracking-wider mb-1"><span class="material-symbols-outlined text-[16px]">domain_verification</span><span class="">Módulo Oficial de Bens Permanentes</span></div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Inventário &amp; Gestão Patrimonial de TI</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Centralização das informações dos ativos</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+
+
+<button class="h-9 px-space-md bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded-lg flex items-center gap-1.5 shadow-sm transition-colors" type="button" onclick="abrirModalCadastro()">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span class="">+ Cadastrar Novo Equipamento</span>
+</button>
+</div>
+</div>
+<!-- CARDS DE CATEGORIAS (Filtros interativos) -->
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-space-sm" id="cards-categorias">
+<!-- 1. Computador -->
+<button class="card-filtro-cat text-left bg-surface-container-lowest p-space-sm rounded-xl shadow-sm border-2 border-transparent flex flex-col justify-between cursor-pointer transition-all hover:bg-surface-container-low focus:outline-none" data-cat="Computador" onclick="filtrarPorCategoria('Computador', this)" type="button">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold truncate">Computadores</span>
+<span class="material-symbols-outlined text-[18px] text-primary">desktop_windows</span>
+</div>
+<div class="my-0.5">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-[1.4rem] font-bold text-primary tracking-tight">612</span>
+<span class="font-code-sm text-[10px] text-secondary font-semibold">41,3%</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Estações fixas</p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-code-sm pt-1 border-t border-surface-container/60">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="truncate">594 em uso</span>
+</div>
+</button>
+<!-- 2. Notebook -->
+<button class="card-filtro-cat text-left bg-surface-container-lowest p-space-sm rounded-xl shadow-sm border-2 border-transparent flex flex-col justify-between cursor-pointer transition-all hover:bg-surface-container-low focus:outline-none" data-cat="Notebook" onclick="filtrarPorCategoria('Notebook', this)" type="button">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold truncate">Notebooks</span>
+<span class="material-symbols-outlined text-[18px] text-primary">laptop_mac</span>
+</div>
+<div class="my-0.5">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-[1.4rem] font-bold text-primary tracking-tight">345</span>
+<span class="font-code-sm text-[10px] text-secondary font-semibold">23,2%</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Dispositivos móveis</p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-code-sm pt-1 border-t border-surface-container/60">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="truncate">332 c/ termo</span>
+</div>
+</button>
+<!-- 3. Smartphone -->
+<button class="card-filtro-cat text-left bg-surface-container-lowest p-space-sm rounded-xl shadow-sm border-2 border-transparent flex flex-col justify-between cursor-pointer transition-all hover:bg-surface-container-low focus:outline-none" data-cat="Smartphone" onclick="filtrarPorCategoria('Smartphone', this)" type="button">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold truncate">Smartphones</span>
+<span class="material-symbols-outlined text-[18px] text-primary">smartphone</span>
+</div>
+<div class="my-0.5">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-[1.4rem] font-bold text-primary tracking-tight">180</span>
+<span class="font-code-sm text-[10px] text-secondary font-semibold">12,1%</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Linhas móveis Gov</p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-code-sm pt-1 border-t border-surface-container/60">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="truncate">180 c/ MDM</span>
+</div>
+</button>
+<!-- 4. Impressora -->
+<button class="card-filtro-cat text-left bg-surface-container-lowest p-space-sm rounded-xl shadow-sm border-2 border-transparent flex flex-col justify-between cursor-pointer transition-all hover:bg-surface-container-low focus:outline-none" data-cat="Impressora" onclick="filtrarPorCategoria('Impressora', this)" type="button">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold truncate">Impressoras</span>
+<span class="material-symbols-outlined text-[18px] text-primary">print</span>
+</div>
+<div class="my-0.5">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-[1.4rem] font-bold text-primary tracking-tight">95</span>
+<span class="font-code-sm text-[10px] text-secondary font-semibold">6,4%</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Multifuncionais/laser</p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-code-sm pt-1 border-t border-surface-container/60">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="truncate">95 ativas</span>
+</div>
+</button>
+<!-- 5. Servidor (NOVO) -->
+<button class="card-filtro-cat text-left bg-surface-container-lowest p-space-sm rounded-xl shadow-sm border-2 border-transparent flex flex-col justify-between cursor-pointer transition-all hover:bg-surface-container-low focus:outline-none" data-cat="Servidor" onclick="filtrarPorCategoria('Servidor', this)" type="button">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold truncate">Servidores</span>
+<span class="material-symbols-outlined text-[18px] text-primary">dns</span>
+</div>
+<div class="my-0.5">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-[1.4rem] font-bold text-primary tracking-tight">48</span>
+<span class="font-code-sm text-[10px] text-secondary font-semibold">3,2%</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Racks &amp; Datacenter</p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-code-sm pt-1 border-t border-surface-container/60">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span class="truncate">48 operando 24/7</span>
+</div>
+</button>
+<!-- 6. Telefone (NOVO) -->
+<button class="card-filtro-cat text-left bg-surface-container-lowest p-space-sm rounded-xl shadow-sm border-2 border-transparent flex flex-col justify-between cursor-pointer transition-all hover:bg-surface-container-low focus:outline-none" data-cat="Telefone" onclick="filtrarPorCategoria('Telefone', this)" type="button">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold truncate">Telefones</span>
+<span class="material-symbols-outlined text-[18px] text-primary">phone_in_talk</span>
+</div>
+<div class="my-0.5">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-[1.4rem] font-bold text-primary tracking-tight">114</span>
+<span class="font-code-sm text-[10px] text-secondary font-semibold">7,7%</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Aparelhos VoIP / SIP</p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-code-sm pt-1 border-t border-surface-container/60">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="truncate">112 ramais ativos</span>
+</div>
+</button>
+<!-- 7. Outros (NOVO) -->
+<button class="card-filtro-cat text-left bg-surface-container-lowest p-space-sm rounded-xl shadow-sm border-2 flex flex-col justify-between cursor-pointer transition-all hover:bg-surface-container-low focus:outline-none border-primary ring-2 ring-primary/20 bg-surface-container-low" data-cat="Outros" onclick="filtrarPorCategoria('Outros', this)" type="button">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold truncate">Outros</span>
+<span class="material-symbols-outlined text-[18px] text-primary">devices_other</span>
+</div>
+<div class="my-0.5">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-[1.4rem] font-bold text-primary tracking-tight">88</span>
+<span class="font-code-sm text-[10px] text-secondary font-semibold">5,9%</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Switches / Nobreaks</p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-code-sm pt-1 border-t border-surface-container/60">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="truncate">Ativos de infra</span>
+</div>
+</button>
+<!-- 8. Todos os Equipamentos (Card de Consolidação ao final) -->
+<button class="card-filtro-cat text-left bg-surface-container-lowest p-space-sm rounded-xl shadow-sm border-2 flex flex-col justify-between cursor-pointer transition-all hover:bg-surface-container-low focus:outline-none border-transparent" data-cat="todos" onclick="filtrarPorCategoria('todos', this)" type="button">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider font-semibold truncate">Todos Ativos</span>
+<span class="material-symbols-outlined text-[18px] text-primary">inventory_2</span>
+</div>
+<div class="my-0.5">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-[1.4rem] font-bold text-primary tracking-tight">1.482</span>
+<span class="font-code-sm text-[10px] text-secondary font-semibold">Total</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Acervo consolidado</p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-primary font-code-sm font-semibold pt-1 border-t border-surface-container/60">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="truncate">Todos os Tipos</span>
+</div>
+</button>
+</div>
+<!-- FILTROS AVANÇADOS -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">filter_alt</span>
+<span class="font-headline-sm text-headline-sm text-primary">Filtros Avançados de Auditoria &amp; Alocação</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span id="contagem-filtros-topo" class="">Exibindo 2 de 88 registros patrimoniais</span>
+<button class="text-secondary hover:underline ml-2" onclick="limparFiltros()" type="button">Limpar Seleção</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Busca por Patrimônio, Série ou Host</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline" id="filtro-texto" placeholder="ex: PAT-2023-04891, Dell, Cisco..." type="text">
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Secretaria / Setor Vinculado</label>
+<select class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40" id="filtro-setor">
+<option value="">Todos os Setores (Todas Secretarias)</option>
+<option value="CTI">CTI - Coordenação de Tecnologia da Informação</option>
+<option value="SEFAZ">Secretaria da Fazenda (SEFAZ) / Tributação</option>
+<option value="GAB">Gabinete do Prefeito</option>
+<option value="SMS">Secretaria Municipal de Saúde (SMS)</option>
+<option value="SEAD">Secretaria de Administração</option>
+<option value="PGM">Procuradoria Geral do Município (PGM)</option>
+<option value="RH">Recursos Humanos</option>
+<option value="ALMOX">Almoxarifado Geral</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Fonte Orçamentária / Dotação</label>
+<select class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40" id="filtro-fonte">
+<option value="">Todas as Fontes de Recursos</option>
+<option value="Fonte 100">Tesouro Municipal - Fonte 100</option>
+<option value="Convênio MGI">Convênio Federal MGI nº 912/2022</option>
+<option value="FMM">Fundo Modernização Fazendária (FMM)</option>
+<option value="Recursos Próprios">Recursos Próprios / Outorga</option>
+<option value="SUS">Repasse Fundo a Fundo SUS (Federal)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Categoria &amp; Situação do Bem</label>
+<select class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40" id="filtro-situacao">
+<option value="">Todas as Situações</option>
+<option value="operacao">Em Uso / Operacional</option>
+<option value="manutencao">Manutenção Preventiva / CTI</option>
+<option value="reserva">Reserva Técnica de Contingência</option>
+<option value="obsoleto">Aguardando Baixa / Doação</option>
+</select>
+</div>
+</div>
+</div>
+<!-- TABELA DE PATRIMÔNIO -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="px-space-lg py-space-sm bg-surface-container-low border-b border-surface-container flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">table_view</span>
+<span class="font-headline-sm text-headline-sm text-primary" id="indicador-categoria-titulo">Exibindo: Outros Ativos de TI (88 itens)</span>
+<span class="font-code-sm text-code-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium" id="badge-filtro-ativo">Filtro: Outros Ativos</span>
+</div>
+<div class="text-on-surface-variant font-code-sm text-code-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="" id="contagem-visivel">Exibindo 2 de 88 registros patrimoniais</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse" id="tabela-inventario">
+<thead>
+<tr class="bg-surface-container-low text-on-surface font-label-md text-label-md border-b-2 border-surface-container"><th class="py-space-md px-space-md font-semibold whitespace-nowrap w-16 text-center">ID</th><th class="py-space-md px-space-md font-semibold">Equipamento &amp; Especificação</th><th class="py-space-md px-space-md font-semibold">Categoria</th><th class="py-space-md px-space-md font-semibold">Setor Responsável</th><th class="py-space-md px-space-md font-semibold whitespace-nowrap">Data de Aquisição</th><th class="py-space-md px-space-md font-semibold">Fonte Dotação</th><th class="py-space-md px-space-md font-semibold whitespace-nowrap">IP / Conectividade</th><th class="py-space-md px-space-md font-semibold whitespace-nowrap">Nº de Patrimônio</th><th class="py-space-md px-space-md font-semibold text-right">Ações</th></tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface" id="tbody-patrimonio"><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Computador" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#001</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Dell OptiPlex 7090 Micro</span><span class="text-on-surface-variant text-xs">Intel i7-11700T • 16GB DDR4 • SSD 512GB NVMe</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Computador</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">Secretaria de Tributação</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">14/03/2023</span><span class="font-code-sm text-code-sm text-secondary">2023NE00142</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary-fixed text-on-primary-fixed">Fonte 100 - Tesouro</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.20.14.88</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="IP Ativo e Respondendo"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2023-04891</span><span class="font-code-sm text-code-sm text-on-surface-variant">S/N: BR-G8942-01A</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2023-04891', 'Dell OptiPlex 7090 Micro', 'Secretaria de Tributação')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Notebook" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#002</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Lenovo ThinkPad E14 Gen 4</span><span class="text-on-surface-variant text-xs">AMD Ryzen 5 5625U • 16GB • SSD 256GB • Tela 14" FHD</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Notebook</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">Gabinete do Prefeito</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">22/06/2023</span><span class="font-code-sm text-code-sm text-secondary">2023NE00488</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary-fixed text-on-tertiary-fixed">Convênio MGI nº 912</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.10.05.42</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="Conectado via Wi-Fi Gov"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2023-05102</span><span class="font-code-sm text-code-sm text-on-surface-variant">S/N: PF-28C1099</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2023-05102', 'Lenovo ThinkPad E14 Gen 4', 'Gabinete do Prefeito')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Servidor" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#003</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Dell PowerEdge R750 2U Rack</span><span class="text-on-surface-variant text-xs">2x Intel Xeon Gold 5318Y • 128GB ECC • 4x 1.92TB NVMe SAS</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-primary text-on-primary font-code-sm text-code-sm font-semibold">Servidor</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">CTI - Datacenter</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">18/02/2022</span><span class="font-code-sm text-code-sm text-secondary">2022NE00045</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary-fixed text-on-primary-fixed">Fonte 100 - Tesouro</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.0.1.10</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="iDRAC &amp; OS Operacionais"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2022-00129</span><span class="font-code-sm text-code-sm text-on-surface-variant">S/N: 7K9Y1N2-BR</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2022-00129', 'Dell PowerEdge R750 2U Rack', 'CTI - Datacenter')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Servidor" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#004</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">HPE ProLiant DL380 Gen10</span><span class="text-on-surface-variant text-xs">2x Intel Xeon Silver 4214 • 64GB DDR4 • 8x 900GB SAS 15K</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-primary text-on-primary font-code-sm text-code-sm font-semibold">Servidor</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">CTI - Sala de Servidores</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">10/11/2021</span><span class="font-code-sm text-code-sm text-secondary">2021NE00918</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary-fixed text-on-tertiary-fixed">Convênio MGI nº 912</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.0.1.15</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="iLO &amp; Cluster Ativos"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2021-00844</span><span class="font-code-sm text-code-sm text-on-surface-variant">S/N: USE841P092</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2021-00844', 'HPE ProLiant DL380 Gen10', 'CTI - Sala de Servidores')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Telefone" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#005</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Telefone IP Cisco 8845 VoIP</span><span class="text-on-surface-variant text-xs">Vídeo 720p HD • PoE Gigabit • Ramal 2001 (Gabinete)</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Telefone</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">Gabinete do Prefeito</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">05/04/2023</span><span class="font-code-sm text-code-sm text-secondary">2023NE00215</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary-fixed text-on-primary-fixed">Fonte 100 - Tesouro</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.10.8.21</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="Registrado no CallManager"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2023-03112</span><span class="font-code-sm text-code-sm text-on-surface-variant">MAC: F4:0F:1B:7A:91:02</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2023-03112', 'Telefone IP Cisco 8845 VoIP', 'Gabinete do Prefeito')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Telefone" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#006</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Telefone IP Grandstream GXP2170</span><span class="text-on-surface-variant text-xs">12 Linhas / 6 Contas SIP • Display Colorido 4.3" • Ramal 3410</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Telefone</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">Secretaria de Tributação</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">17/08/2022</span><span class="font-code-sm text-code-sm text-secondary">2022NE00654</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-on-surface">FMM Fazendário</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.20.14.25</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="SIP Online"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2022-01990</span><span class="font-code-sm text-code-sm text-on-surface-variant">MAC: 00:0B:82:C4:3E:18</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2022-01990', 'Telefone IP Grandstream GXP2170', 'Secretaria de Tributação')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Outros"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#007</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Nobreak Senoidal APC Smart-UPS 3000VA</span><span class="text-on-surface-variant text-xs">Rack 2U • 230V • Cartão SNMP Network Management AP9630</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Outros</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">CTI - Infraestrutura</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">28/09/2022</span><span class="font-code-sm text-code-sm text-secondary">2022NE00810</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary-fixed text-on-primary-fixed">Fonte 100 - Tesouro</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.0.1.250</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="SNMP Normal (Baterias 100%)"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2022-04102</span><span class="font-code-sm text-code-sm text-on-surface-variant">S/N: AS2208149021</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2022-04102', 'Nobreak APC Smart-UPS 3000VA', 'CTI - Infraestrutura')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Outros"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#008</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Switch Cisco Catalyst 9200 48P PoE+</span><span class="text-on-surface-variant text-xs">48 Portas Gigabit PoE+ • 4x 10G SFP+ Uplinks • StackWise</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Outros</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">Secretaria de Administração</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">30/05/2023</span><span class="font-code-sm text-code-sm text-secondary">2023NE00388</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary-fixed text-on-tertiary-fixed">Convênio MGI nº 912</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.0.10.1</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="Switch Online e Monitorado"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2023-05102</span><span class="font-code-sm text-code-sm text-on-surface-variant">S/N: FOC2441L0XY</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2023-05102', 'Switch Cisco Catalyst 9200 48P', 'Secretaria de Administração')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Smartphone" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#009</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Samsung Galaxy Enterprise Edition</span><span class="text-on-surface-variant text-xs">5G • 128GB • MDM Corporativo Ativo • Linha 48-99882</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Smartphone</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">Procuradoria Judicial</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">11/04/2023</span><span class="font-code-sm text-code-sm text-secondary">2023NE00290</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-on-surface">Recursos Próprios</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">4G/5G Móvel</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="MDM Ativo e Conectado"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2023-08119</span><span class="font-code-sm text-code-sm text-on-surface-variant">IMEI: 358912/10/772109</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2023-08119', 'Samsung Galaxy Enterprise Edition', 'Procuradoria Judicial')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Impressora" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#010</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Impressora Térmica Zebra ZD220</span><span class="text-on-surface-variant text-xs">Emissão de Etiquetas Patrimoniais com Ribbon Resina</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Impressora</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">Almoxarifado Geral</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">19/08/2023</span><span class="font-code-sm text-code-sm text-secondary">2023NE00771</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary-fixed text-on-primary-fixed">Fonte 100 - Tesouro</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.0.18.15</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="Servidor de Impressão OK"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2023-06214</span><span class="font-code-sm text-code-sm text-on-surface-variant">S/N: K7901-T8301</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2023-06214', 'Zebra ZD220 Térmica', 'Almoxarifado Geral')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Impressora" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#011</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Multifuncional Ricoh Laser MP 402</span><span class="text-on-surface-variant text-xs">Laser Monocromática • 42 ppm • Duplex • Rede Gigabit</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Impressora</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">Recursos Humanos</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">15/05/2022</span><span class="font-code-sm text-code-sm text-secondary">2022NE00412</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary-fixed text-on-primary-fixed">Fonte 100 - Tesouro</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-1.5"><span class="font-code-sm text-code-sm font-semibold text-secondary">10.10.12.5</span><span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" title="Pronta para Impressão"></span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-code-md text-code-md font-bold text-primary">PAT-2022-03112</span><span class="font-code-sm text-code-sm text-on-surface-variant">S/N: RCH-88219-X</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('PAT-2022-03112', 'Multifuncional Ricoh Laser MP 402', 'Recursos Humanos')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr><tr class="linha-equipamento hover:bg-surface-container-low/60 transition-colors" data-categoria="Computador" style="display: none;"><td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#012</td><td class="py-space-md px-space-md"><div class="flex flex-col max-w-xs"><span class="font-body-md text-body-md font-semibold text-primary truncate">Desktop Positivo Master C610</span><span class="text-on-surface-variant text-xs">Core i3-7100 • 8GB • HD 500GB (Substituição recomendada)</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded bg-surface-container font-code-sm text-code-sm text-on-surface font-semibold">Computador</span></td><td class="py-space-md px-space-md"><span class="font-medium text-primary">Centro de Tecnologia (CTI)</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex flex-col"><span class="font-medium text-primary">02/05/2019</span><span class="font-code-sm text-code-sm text-secondary">2019NE00109</span></div></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-on-surface">Fundo Saúde SUS</span></td><td class="py-space-md px-space-md whitespace-nowrap"><span class="text-on-surface-variant font-code-sm text-code-sm">Sem Conexão</span></td><td class="py-space-md px-space-md whitespace-nowrap"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-outline-variant"></span><div class="flex flex-col"><span class="px-2 py-0.5 rounded font-code-sm text-code-sm font-semibold bg-surface-container-high text-on-surface-variant w-fit">Sem patrimônio / Pendente</span><span class="font-code-sm text-code-sm text-on-surface-variant">S/N: SMS-H812-700</span></div></div></td><td class="py-space-md px-space-md whitespace-nowrap text-right"><div class="flex items-center justify-end gap-1"><button class="p-1 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded transition-colors" title="Ver Ficha Completa do Patrimônio" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span></button><button class="p-1 text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded transition-colors" onclick="abrirGavetaTransferencia('Pendente', 'Desktop Positivo Master C610', 'Centro de Tecnologia (CTI)')" title="Transferência Setorial Rápida" type="button"><span class="material-symbols-outlined text-[18px]">swap_horiz</span></button></div></td></tr></tbody>
+</table>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between p-space-md bg-surface-container-low gap-space-sm border-t border-surface-container">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span class="">Itens por página:</span>
+<select class="h-7 px-2 bg-surface-container-lowest rounded font-code-sm text-code-sm focus:outline-none">
+<option>25</option>
+<option>50</option>
+<option>100</option>
+<option>250</option>
+</select>
+<span class="" id="legenda-paginacao">Exibindo 1 a 2 de 88 registros oficiais</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant disabled:opacity-40" disabled="" title="Página Anterior" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<span class="px-2.5 py-1 rounded bg-primary text-on-primary font-code-sm text-code-sm font-bold">1</span>
+<button class="px-2.5 py-1 rounded hover:bg-surface-container text-on-surface font-code-sm text-code-sm" type="button">2</button>
+<button class="px-2.5 py-1 rounded hover:bg-surface-container text-on-surface font-code-sm text-code-sm" type="button">3</button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="px-2.5 py-1 rounded hover:bg-surface-container text-on-surface font-code-sm text-code-sm" type="button">60</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant" title="Próxima Página" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- GAVETA LATERAL DE TRANSFERÊNCIA SETORIAL -->
+<div class="fixed inset-y-0 right-0 w-full sm:w-[480px] bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between" id="gaveta-transferencia">
+<div class="flex flex-col h-full overflow-y-auto">
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">swap_horiz</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Transferência Setorial Rápida</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Termo de Guarda e Responsabilidade</p>
+</div>
+</div>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg" onclick="fecharGavetaTransferencia()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-lg flex flex-col gap-space-md">
+<div class="p-space-md bg-surface-container-low rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Identificação do Bem Público</span>
+<div class="flex items-baseline justify-between mt-1">
+<span class="font-code-md text-code-md font-bold text-secondary" id="transf-pat">PAT-0000-00000</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-container-high text-on-surface">BEM PERMANENTE</span>
+</div>
+<span class="font-body-md text-body-md font-medium text-primary mt-1" id="transf-equip">Descrição do Equipamento</span>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Setor de Origem Registrado</label>
+<input class="w-full h-9 px-3 bg-surface-container text-on-surface font-body-sm text-body-sm rounded-lg opacity-80 cursor-not-allowed" id="transf-origem" readonly="" type="text">
+</div>
+<div class="h-px bg-surface-container my-1"></div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-primary font-semibold">Novo Setor / Secretaria de Destino *</label>
+<select class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40">
+<option value="">Selecione o setor de destino...</option>
+<option>Secretaria Municipal de Saúde - SMS</option>
+<option>Secretaria de Educação - SME</option>
+<option>Gabinete do Prefeito - Assessoria</option>
+<option>CTI - Datacenter e Infraestrutura</option>
+<option>Secretaria de Fazenda (SEFAZ)</option>
+<option>Secretaria de Administração (SEAD)</option>
+<option>Procuradoria Geral do Município (PGM)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Motivo da Transferência / Processo Administrativo</label>
+<textarea class="w-full p-2.5 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline resize-none" placeholder="Indicar número do memorando ou processo 1Doc/SEI e justificativa..." rows="3"></textarea>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-start gap-2">
+
+
+</div>
+</div>
+<div class="p-space-lg bg-surface-container-low border-t border-surface-container flex items-center justify-end gap-space-sm">
+<button class="h-9 px-space-md bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md rounded-lg transition-colors" onclick="fecharGavetaTransferencia()" type="button">
+  Cancelar
+</button>
+<button type="button" onclick="confirmarTransferencia()" class="px-space-lg py-2.5 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-lg hover:bg-primary-container transition-all shadow-sm">Concluir</button>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 bg-primary/40 backdrop-blur-sm z-40 hidden transition-opacity" id="backdrop-transferencia" onclick="fecharGavetaTransferencia()"></div>
+<script id="script-filtro-categorias">
+function filtrarPorCategoria(categoria, elementoBotao) {
+  const cards = document.querySelectorAll('.card-filtro-cat');
+  cards.forEach(card => {
+    card.classList.remove('border-primary', 'ring-2', 'ring-primary/20', 'bg-surface-container-low');
+    card.classList.add('border-transparent');
+  });
+  if (elementoBotao) {
+    elementoBotao.classList.remove('border-transparent');
+    elementoBotao.classList.add('border-primary', 'ring-2', 'ring-primary/20', 'bg-surface-container-low');
+  }
+
+  const linhas = document.querySelectorAll('.linha-equipamento');
+  let visiveis = 0;
+
+  linhas.forEach(linha => {
+    const catLinha = linha.getAttribute('data-categoria');
+    if (categoria === 'todos' || catLinha === categoria) {
+      linha.style.display = '';
+      visiveis++;
+    } else {
+      linha.style.display = 'none';
+    }
+  });
+
+  const tituloIndicador = document.getElementById('indicador-categoria-titulo');
+  const badgeFiltro = document.getElementById('badge-filtro-ativo');
+  const contagemVisivel = document.getElementById('contagem-visivel');
+  const contagemTopo = document.getElementById('contagem-filtros-topo');
+  const legendaPaginacao = document.getElementById('legenda-paginacao');
+
+  const mapaNomes = {
+    'todos': { nome: 'Todos os Equipamentos (1.482 itens)', badge: 'Filtro Consolidado', total: '1.482' },
+    'Computador': { nome: 'Computadores (612 itens)', badge: 'Filtro: Computadores', total: '612' },
+    'Notebook': { nome: 'Notebooks (345 itens)', badge: 'Filtro: Notebooks', total: '345' },
+    'Smartphone': { nome: 'Smartphones (180 itens)', badge: 'Filtro: Smartphones', total: '180' },
+    'Impressora': { nome: 'Impressoras (95 itens)', badge: 'Filtro: Impressoras', total: '95' },
+    'Servidor': { nome: 'Servidores & Datacenter (48 itens)', badge: 'Filtro: Servidores', total: '48' },
+    'Telefone': { nome: 'Telefones & Ramais VoIP (114 itens)', badge: 'Filtro: Telefones', total: '114' },
+    'Outros': { nome: 'Outros Ativos de TI (88 itens)', badge: 'Filtro: Outros Ativos', total: '88' }
+  };
+
+  const info = mapaNomes[categoria] || { nome: 'Equipamentos Filtrados', badge: 'Filtrado', total: visiveis };
+  if (tituloIndicador) tituloIndicador.textContent = 'Exibindo: ' + info.nome;
+  if (badgeFiltro) badgeFiltro.textContent = info.badge;
+  if (contagemVisivel) contagemVisivel.textContent = 'Exibindo ' + visiveis + ' de ' + info.total + ' registros patrimoniais';
+  if (contagemTopo) contagemTopo.textContent = 'Exibindo ' + visiveis + ' de ' + info.total + ' registros patrimoniais';
+  if (legendaPaginacao) legendaPaginacao.textContent = 'Exibindo 1 a ' + visiveis + ' de ' + info.total + ' registros oficiais';
+}
+</script>
+</div>
+<script>
+  function abrirGavetaTransferencia(pat, equipamento, setorOrigem) {
+    document.getElementById('transf-pat').innerText = pat;
+    document.getElementById('transf-equip').innerText = equipamento;
+    document.getElementById('transf-origem').value = setorOrigem;
+
+    const gaveta = document.getElementById('gaveta-transferencia');
+    const backdrop = document.getElementById('backdrop-transferencia');
+
+    backdrop.classList.remove('hidden');
+    setTimeout(() => {
+      gaveta.classList.remove('translate-x-full');
+    }, 10);
+  }
+
+  function fecharGavetaTransferencia() {
+    const gaveta = document.getElementById('gaveta-transferencia');
+    const backdrop = document.getElementById('backdrop-transferencia');
+
+    gaveta.classList.add('translate-x-full');
+    setTimeout(() => {
+      backdrop.classList.add('hidden');
+    }, 300);
+  }
+
+  function confirmarTransferencia() {
+    const termoCheck = document.getElementById('check-termo');
+    if (!termoCheck.checked) {
+      alert('Favor marcar a declaração de emissão do Termo de Responsabilidade para validar o processo oficial.');
+      return;
+    }
+    alert('Transferência processada com sucesso no SISPAT-Gov! Termo de Guarda registrado.');
+    fecharGavetaTransferencia();
+  }
+
+  function limparFiltros() {
+    document.getElementById('filtro-texto').value = '';
+    document.getElementById('filtro-setor').value = '';
+    document.getElementById('filtro-fonte').value = '';
+    document.getElementById('filtro-situacao').value = '';
+    const btnTodos = document.querySelector('.card-filtro-cat[data-cat="todos"]');
+    if (btnTodos) filtrarPorCategoria('todos', btnTodos);
+  }
+</script><!-- MODAL DE CADASTRO DE NOVO EQUIPAMENTO -->
+<div id="modal-cadastro-backdrop" class="fixed inset-0 bg-primary/40 backdrop-blur-sm z-50 hidden transition-opacity flex items-center justify-center p-space-md" onclick="fecharModalCadastro(event)">
+  <div id="modal-cadastro-dialog" class="bg-surface-container-lowest rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden border border-surface-container" onclick="event.stopPropagation()">
+    <!-- Modal Header -->
+    <div class="p-space-lg bg-surface-container-low border-b border-surface-container flex items-center justify-between">
+      <div class="flex items-center gap-space-sm">
+        <div class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[20px]">add_circle</span>
+        </div>
+        <div>
+          <h2 class="font-headline-sm text-headline-sm text-primary">Cadastrar Novo Equipamento</h2>
+          <p class="font-label-sm text-label-sm text-on-surface-variant">Registro e patrimônio de ativos de TI do município</p>
+        </div>
+      </div>
+      <button type="button" onclick="fecharModalCadastro()" class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Fechar">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+
+    <!-- Modal Body / Form -->
+    <form id="form-cadastro-equipamento" class="overflow-y-auto p-space-lg flex flex-col gap-space-lg min-h-0" onsubmit="salvarNovoEquipamento(event)">
+      <!-- 1. Identificação & Tipo -->
+      <div class="flex flex-col gap-space-sm">
+        <div class="flex items-center gap-2 border-b border-surface-container/60 pb-1">
+          <span class="material-symbols-outlined text-secondary text-[18px]">devices</span>
+          <h3 class="font-label-md text-label-md text-primary uppercase tracking-wider font-semibold">1. Identificação &amp; Tipo</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Tipo de Equipamento *</label>
+            <select required="" class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
+              <option value="">Selecione o tipo...</option>
+              <option value="Computador">Computador</option>
+              <option value="Notebook">Notebook</option>
+              <option value="Monitor">Monitor</option>
+              <option value="Servidor">Servidor</option>
+              <option value="Telefone">Telefone VoIP / SIP</option>
+              <option value="Impressora">Impressora / Multifuncional</option>
+              <option value="Periféricos">Periféricos</option>
+              <option value="Outros">Outros Ativos de TI</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Fabricante / Marca *</label>
+            <input required="" type="text" placeholder="ex: Dell, Lenovo, HP, Cisco" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Modelo do Ativo *</label>
+            <input required="" type="text" placeholder="ex: OptiPlex 7090, ThinkPad E14" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Número de Série (S/N) *</label>
+            <input required="" type="text" placeholder="ex: BR-G8942-01A ou PF-28C1099" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Dados Patrimoniais & Aquisição -->
+      <div class="flex flex-col gap-space-sm">
+        <div class="flex items-center gap-2 border-b border-surface-container/60 pb-1">
+          <span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+          <h3 class="font-label-md text-label-md text-primary uppercase tracking-wider font-semibold">2. Dados Patrimoniais &amp; Aquisição</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md"><div class="flex flex-col gap-1 sm:col-span-2">
+  <label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Nº de Patrimônio (PAT)</label>
+  <div class="relative flex items-center">
+    <input id="input-novo-pat" type="text" placeholder="ex: PAT-2024-00150" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+  </div>
+  <label class="flex items-center gap-2 mt-1 cursor-pointer select-none">
+    <input id="check-pat-pendente" type="checkbox" onchange="togglePatPendente(this)" class="w-4 h-4 rounded border-outline-variant text-secondary focus:ring-secondary/40">
+    <span class="font-label-sm text-label-sm text-on-surface-variant">Item ainda sem patrimônio cadastrado / pendente de plaqueta</span>
+  </label>
+</div>
+<div class="flex flex-col gap-1">
+  <label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Data de Aquisição *</label>
+  <input required="" type="date" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
+</div>
+<div class="flex flex-col gap-1">
+  <label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Fonte de Recursos / Dotação *</label>
+  <select required="" class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
+    <option value="">Selecione a fonte...</option>
+    <option value="Fonte 100 - Tesouro">Fonte 100 - Tesouro Municipal</option>
+    <option value="Convênio MGI">Convênio Federal MGI nº 912</option>
+    <option value="FMM Fazendário">FMM - Fundo Modernização Fazendária</option>
+    <option value="Recursos Próprios">Recursos Próprios / Outorga</option>
+    <option value="Fundo Saúde SUS">Fundo Municipal de Saúde (SUS)</option>
+  </select>
+</div></div>
+      </div>
+
+      <!-- 3. Lotação & Rede / Conectividade -->
+      <div class="flex flex-col gap-space-sm">
+        <div class="flex items-center gap-2 border-b border-surface-container/60 pb-1">
+          <span class="material-symbols-outlined text-secondary text-[18px]">lan</span>
+          <h3 class="font-label-md text-label-md text-primary uppercase tracking-wider font-semibold">3. Lotação &amp; Rede / Conectividade</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+          <div class="flex flex-col gap-1 sm:col-span-2">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Setor / Departamento de Lotação *</label>
+            <select required="" class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
+              <option value="">Selecione o setor de destino...</option>
+              <option value="CTI - Coordenação de Tecnologia da Informação">CTI - Coordenação de Tecnologia da Informação</option>
+              <option value="Secretaria de Tributação">Secretaria de Fazenda / Tributação</option>
+              <option value="Gabinete do Prefeito">Gabinete do Prefeito</option>
+              <option value="Secretaria Municipal de Saúde">Secretaria Municipal de Saúde (SMS)</option>
+              <option value="Secretaria de Administração">Secretaria de Administração (SEAD)</option>
+              <option value="Procuradoria Judicial">Procuradoria Geral do Município (PGM)</option>
+              <option value="Recursos Humanos">Recursos Humanos (RH)</option>
+              <option value="Almoxarifado Geral">Almoxarifado Geral</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Endereço IP / Hostname <span class="text-xs text-outline">(opcional)</span></label>
+            <input type="text" placeholder="ex: 10.20.14.90 ou ws-sefaz-04" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Responsável / Usuário <span class="text-xs text-outline">(opcional)</span></label>
+            <input type="text" placeholder="Nome do servidor ou cargo" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- Modal Footer -->
+    <div class="p-space-lg bg-surface-container-low border-t border-surface-container flex items-center justify-end gap-space-sm">
+      <button type="button" onclick="fecharModalCadastro()" class="h-9 px-space-md bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md rounded-lg transition-colors border border-surface-container">
+        Cancelar
+      </button>
+      <button type="submit" form="form-cadastro-equipamento" class="h-9 px-space-md bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded-lg flex items-center gap-1.5 shadow-sm transition-colors">
+        <span class="material-symbols-outlined text-[18px]">check_circle</span>
+        <span class="">Cadastrar Ativo</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script id="script-modal-cadastro" class="">
+function abrirModalCadastro() {
+  const backdrop = document.getElementById('modal-cadastro-backdrop');
+  if (!backdrop) return;
+  backdrop.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+}
+
+function fecharModalCadastro(e) {
+  if (e && e.target && e.target.id !== 'modal-cadastro-backdrop' && !e.target.closest('button[title="Fechar"]') && !e.target.closest('button.bg-surface-container-lowest')) {
+    return;
+  }
+  const backdrop = document.getElementById('modal-cadastro-backdrop');
+  if (!backdrop) return;
+  backdrop.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+
+function togglePatPendente(checkbox) {
+  const inputPat = document.getElementById('input-novo-pat');
+  if (!inputPat) return;
+  if (checkbox.checked) {
+    inputPat.value = 'PAT-PENDENTE';
+    inputPat.disabled = true;
+    inputPat.classList.add('opacity-60', 'cursor-not-allowed');
+  } else {
+    inputPat.value = '';
+    inputPat.disabled = false;
+    inputPat.classList.remove('opacity-60', 'cursor-not-allowed');
+  }
+}
+
+function salvarNovoEquipamento(e) {
+  e.preventDefault();
+  alert('Equipamento cadastrado com sucesso no acervo patrimonial SIGPAT-TI!');
+  const form = document.getElementById('form-cadastro-equipamento');
+  if (form) form.reset();
+  const inputPat = document.getElementById('input-novo-pat');
+  if (inputPat) {
+    inputPat.disabled = false;
+    inputPat.classList.remove('opacity-60', 'cursor-not-allowed');
+  }
+  fecharModalCadastro();
+}
+</script></main></div>
+
+
+
+</body></html>

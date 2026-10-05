@@ -1,0 +1,778 @@
+<!DOCTYPE html><html lang="pt-BR" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary": "#4059aa",
+          "primary-fixed": "#d1e4ff",
+          "on-tertiary": "#ffffff",
+          "tertiary-fixed": "#cce5ff",
+          "surface": "#f8f9ff",
+          "surface-variant": "#d5e3fd",
+          "inverse-surface": "#233144",
+          "tertiary-container": "#002a44",
+          "background": "#f8f9ff",
+          "outline-variant": "#c3c6ce",
+          "on-error": "#ffffff",
+          "on-error-container": "#93000a",
+          "secondary-fixed-dim": "#b6c4ff",
+          "on-primary-fixed": "#011d35",
+          "on-tertiary-fixed-variant": "#004b73",
+          "surface-dim": "#ccdbf4",
+          "on-tertiary-fixed": "#001d31",
+          "on-primary-fixed-variant": "#314863",
+          "primary": "#001428",
+          "secondary-fixed": "#dce1ff",
+          "outline": "#74777e",
+          "on-secondary-fixed": "#00164e",
+          "surface-container-lowest": "#ffffff",
+          "on-surface-variant": "#43474d",
+          "tertiary": "#001524",
+          "inverse-on-surface": "#ebf1ff",
+          "on-secondary": "#ffffff",
+          "surface-container-low": "#eff4ff",
+          "on-primary-container": "#7991af",
+          "surface-bright": "#f8f9ff",
+          "error-container": "#ffdad6",
+          "on-secondary-container": "#1d3989",
+          "on-tertiary-container": "#2e95da",
+          "inverse-primary": "#b0c9e8",
+          "tertiary-fixed-dim": "#93ccff",
+          "surface-container-high": "#dde9ff",
+          "on-surface": "#0d1c2f",
+          "secondary-container": "#8fa7fe",
+          "surface-container-highest": "#d5e3fd",
+          "error": "#ba1a1a",
+          "primary-fixed-dim": "#b0c9e8",
+          "on-secondary-fixed-variant": "#264191",
+          "primary-container": "#0f2942",
+          "on-primary": "#ffffff",
+          "surface-container": "#e6eeff",
+          "surface-tint": "#49607c",
+          "on-background": "#0d1c2f"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-md": "0.75rem",
+          "space-lg": "1rem",
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem",
+          "gutter-desktop": "1.5rem",
+          "space-xl": "1.5rem",
+          "gutter": "1rem",
+          "margin": "1rem",
+          "margin-desktop": "2rem"
+        },
+        "fontFamily": {
+          "body-md": ["Inter", "sans-serif"],
+          "display": ["Public Sans", "sans-serif"],
+          "label-md": ["Inter", "sans-serif"],
+          "body-sm": ["Inter", "sans-serif"],
+          "headline-md": ["Public Sans", "sans-serif"],
+          "headline-lg": ["Public Sans", "sans-serif"],
+          "code-sm": ["JetBrains Mono", "monospace"],
+          "label-sm": ["Inter", "sans-serif"],
+          "headline-sm": ["Public Sans", "sans-serif"],
+          "body-lg": ["Inter", "sans-serif"],
+          "code-md": ["JetBrains Mono", "monospace"]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none border-r border-outline-variant/30"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 flex items-center px-6 border-b border-outline-variant/30 gap-3"><div class="w-8 h-8 rounded bg-primary text-white flex items-center justify-center font-bold text-sm tracking-wider"><span class="material-symbols-outlined text-lg">domain</span></div><div><h1 class="text-sm font-bold text-on-surface tracking-tight leading-none">SIGPAT·TI</h1><p class="text-[10px] text-on-surface-variant font-medium leading-tight">Gov. Patrimônio &amp; IPAM Público</p></div></div><div class="px-4 py-3"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/20 text-on-surface"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span class="text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant">REDE OPERACIONAL</span></div></div><nav class="flex-1 p-4 flex flex-col gap-1.5 overflow-y-auto"><a class="group flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all text-sm" href="#"><div class="flex items-center gap-2.5 min-w-0"><span class="material-symbols-outlined text-[20px] shrink-0">inventory_2</span><span class="font-medium truncate">Inventário Geral</span></div><span class="font-code-sm text-[11px] bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant font-medium shrink-0">1.482</span></a><a class="group flex items-center justify-between px-3 py-2.5 rounded-lg bg-primary text-white font-semibold shadow-sm text-sm" href="#"><div class="flex items-center gap-2.5 min-w-0"><span class="material-symbols-outlined text-[20px] text-primary-fixed shrink-0">lan</span><span class="truncate">Gestão IPAM</span></div></a><a class="group flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all text-sm" href="#"><div class="flex items-center gap-2.5 min-w-0"><span class="material-symbols-outlined text-[20px] shrink-0">verified_user</span><span class="font-medium truncate">Auditoria &amp; Logs</span></div></a></nav></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop border-b border-outline-variant/20"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm font-bold text-primary">Gestão de Endereços IP</span></div><div class="flex items-center gap-space-lg"><div class="relative"><button class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors flex items-center justify-center" title="Alertas de Discrepância" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></button></div><div class="h-8 w-px bg-outline-variant/30"></div><div class="flex items-center gap-space-md"><div class="flex flex-col text-right"><span class="font-headline-sm text-[13px] text-on-surface leading-tight font-semibold">Carlos Eduardo Mendonça</span><span class="font-label-sm text-[11px] text-on-surface-variant leading-tight">Mat. 849.201 • Suporte TI / Administrador</span></div><div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-xs ring-2 ring-primary/10 shadow-inner">CM</div></div></div></header><main class="relative pt-16 bg-surface min-h-screen px-gutter-desktop py-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<!-- Top Banner / Operational Context -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30">
+<div class="flex flex-col gap-1 max-w-3xl"><h1 class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">Gestão de Endereços IP</h1></div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs h-9 px-space-md bg-error/10 hover:bg-error/20 text-error font-body-md text-body-md font-semibold rounded-lg transition-colors border border-error/30" onclick="filterByDiscrepancy()" type="button">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+<span class="">Discrepâncias (4)</span>
+</button>
+<button class="inline-flex items-center gap-space-xs h-9 px-space-md bg-surface-container hover:bg-surface-container-high text-primary font-body-md text-body-md font-medium rounded-lg transition-colors border border-outline-variant/40" id="btn-batch-ping" type="button">
+<span class="material-symbols-outlined text-[18px]">cell_tower</span>
+<span class="">Testar Pings da Faixa</span>
+</button>
+<button class="inline-flex items-center gap-space-xs h-9 px-space-md bg-primary-container hover:bg-secondary text-on-primary font-body-md text-body-md font-medium rounded-lg transition-colors shadow-sm" onclick="openBindModal('172.23.6.48', 'Livre')" type="button"><span class="material-symbols-outlined text-[18px]">add_link</span>
+<span class="">+ Alocar IP</span></button>
+</div>
+</div>
+<!-- Network Switcher Tabs -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm bg-surface-container-low p-1.5 rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-1.5 flex-1"><button class="flex-1 sm:flex-initial flex items-center justify-between sm:justify-start gap-3 px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-primary font-semibold shadow-sm border border-secondary/40 text-sm transition-all hover:bg-surface-container-low" id="tab-faixa-6" type="button"><div class="flex items-center gap-2.5 min-w-0"><span class="material-symbols-outlined text-[20px] text-secondary shrink-0">computer</span><div class="flex flex-col text-left"><span class="font-code-md text-code-md leading-none font-bold">172.23.6.0/24</span><span class="text-[11px] text-on-surface-variant font-normal truncate">Estações, Servidores &amp; Roteadores Wi-Fi</span></div></div><span class="ml-3 font-code-sm text-[11px] bg-secondary/15 text-secondary px-2 py-0.5 rounded font-bold whitespace-nowrap">Principal</span></button><button class="flex-1 sm:flex-initial flex items-center justify-between sm:justify-start gap-3 px-space-md py-2.5 rounded-lg bg-surface-container-low/70 hover:bg-surface-container-lowest text-on-surface font-medium border border-outline-variant/30 text-sm transition-all group" id="tab-faixa-5" type="button"><div class="flex items-center gap-2.5 min-w-0"><span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-secondary shrink-0 transition-colors">call</span><div class="flex flex-col text-left"><span class="font-code-md text-code-md leading-none text-on-surface font-semibold">172.23.5.0/24</span><span class="text-[11px] text-on-surface-variant font-normal truncate">Telefonia IP / VoIP</span></div></div><span class="ml-3 font-code-sm text-[11px] bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded font-medium whitespace-nowrap">Telefones</span></button></div>
+
+</div>
+<!-- Metric Cards (Faixa Atual: 172.23.6.0/24) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md lg:grid-cols-4">
+<!-- Card 1: Total da Faixa -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Total Utilizável</span>
+<span class="material-symbols-outlined text-[18px] text-outline">dns</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="font-display text-2xl font-bold text-primary font-mono">254</span>
+<span class="text-xs text-on-surface-variant">endereços</span>
+</div>
+
+</div>
+<!-- Card 2: Alocados & Confirmados -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-secondary">Alocados / Cadastrados</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">task_alt</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="font-display text-2xl font-bold text-secondary font-mono">168</span>
+<span class="text-xs text-on-surface-variant">ocupados (66.1%)</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 mt-2 overflow-hidden">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 66.1%"></div>
+</div>
+</div>
+<!-- Card 3: Livres Confirmados -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-emerald-700">Livres Confirmados</span>
+<span class="material-symbols-outlined text-[18px] text-emerald-600">check_circle</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="font-display text-2xl font-bold text-emerald-700 font-mono">74</span>
+<span class="text-xs text-on-surface-variant">sem resposta ICMP</span>
+</div>
+<span class="font-label-sm text-[11px] text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded w-fit mt-1">Aptos para novo cadastro</span>
+</div>
+<!-- Card 4: Alertas de Discrepância (CRÍTICO) -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-error/40 flex flex-col justify-between bg-gradient-to-br from-error-container/10 to-transparent">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-error">Discrepâncias / Falso Livre</span>
+<span class="material-symbols-outlined text-[18px] text-error animate-bounce">warning</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="font-display text-2xl font-bold text-error font-mono">4</span>
+<span class="text-xs text-error font-semibold">IPs Fantasmas em Uso!</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-error-container leading-tight mt-1">Constam como 'Livre', mas respondem a ping!</p>
+</div>
+<!-- Card 5: Roteadores & APs Wi-Fi -->
+
+</div>
+<!-- Compact IP Matrix / Visual Map of 254 Host Addresses -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-2 border-b border-outline-variant/20">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">grid_view</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary leading-tight">Mapa Visual da Faixa</h3>
+<p class="text-xs text-on-surface-variant">Visão rápida da ocupação contígua e localização imediata de faixas livres para novas máquinas.</p>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex items-center gap-3 flex-wrap text-[11px] font-medium text-on-surface-variant"><span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-slate-800"></span> Reservado</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-emerald-500"></span> Alocado (Ativo)</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-amber-400"></span> Alocado (Inativo)</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-emerald-100 border border-emerald-300"></span> Livre</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-error ring-2 ring-error/30 animate-pulse"></span> Livre (Com Ping / Alerta)</span></div>
+</div>
+<!-- Mini Grid of blocks (samples showing first blocks, middle blocks, discrepancy highlights, and tail) -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<div class="grid grid-cols-10 sm:grid-cols-16 md:grid-cols-20 lg:grid-cols-32 gap-1 overflow-visible" id="ip-grid-container"><div class="h-6 rounded-sm bg-slate-700 text-white flex items-center justify-center font-mono text-[10px] font-bold cursor-pointer hover:ring-2 hover:ring-primary transition-all select-none" title="172.23.6.1 - Gateway Switch Core Central">.1</div><div class="h-6 rounded-sm bg-slate-700 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:ring-2 hover:ring-primary transition-all select-none" title="172.23.6.2 - Switch Rack CTI 01">.2</div><div class="h-6 rounded-sm bg-slate-700 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.3 - Switch Rack CTI 02">.3</div><div class="h-6 rounded-sm bg-slate-700 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.4 - Switch Fazenda">.4</div><div class="h-6 rounded-sm bg-slate-700 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.5 - Switch Protocolo">.5</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.6 - Servidor AD / DNS">.6</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.7 - Servidor Arquivos">.7</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.8 - Servidor SIGPAT-TI">.8</div><div class="h-6 rounded-sm bg-amber-400 text-slate-900 font-bold flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.9 - Servidor Backup Secundário (Offline)">.9</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.10 - Roteador Wi-Fi Gabinete">.10</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.11 - Roteador Wi-Fi CTI">.11</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.12 - Roteador Wi-Fi Fazenda">.12</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.13 - Roteador Wi-Fi Protocolo">.13</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.14 - Roteador Wi-Fi Auditório">.14</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.15 - Dell OptiPlex - Protocolo">.15</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.16 - Workstation Fazenda">.16</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.17 - Workstation Fazenda">.17</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.18 - Workstation RH">.18</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.19 - Workstation Almoxarifado">.19</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.20 - Workstation Jurídico">.20</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.21 - Workstation Gabinete">.21</div><div class="h-6 rounded-sm bg-error text-white font-bold flex items-center justify-center font-mono text-[10px] ring-2 ring-error/50 animate-pulse cursor-pointer shadow-md select-none" onclick="openBindModal('172.23.6.22', 'Discrepancia')" title="ALERTA: 172.23.6.22 - Não cadastrado mas responde a PING!">.22</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.23">.23</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.24">.24</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.25">.25</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.26">.26</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.27">.27</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.28">.28</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.29">.29</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.30">.30</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.31">.31</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.32">.32</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.33">.33</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.34">.34</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.35">.35</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.36">.36</div><div class="h-6 rounded-sm bg-error text-white font-bold flex items-center justify-center font-mono text-[10px] ring-2 ring-error/50 animate-pulse cursor-pointer shadow-md select-none" onclick="openBindModal('172.23.6.37', 'Discrepancia')" title="ALERTA: 172.23.6.37 - Não cadastrado mas responde a PING!">.37</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.38">.38</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.39">.39</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.40">.40</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.41', 'Livre')" title="172.23.6.41 - Livre Confirmado (Clique para alocar)">.41</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.42', 'Livre')" title="172.23.6.42 - Livre Confirmado">.42</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.43', 'Livre')" title="172.23.6.43 - Livre Confirmado">.43</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.44', 'Livre')" title="172.23.6.44 - Livre Confirmado">.44</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.45', 'Livre')" title="172.23.6.45 - Livre Confirmado">.45</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.46', 'Livre')" title="172.23.6.46 - Livre Confirmado">.46</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.47', 'Livre')" title="172.23.6.47 - Livre Confirmado">.47</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.48', 'Livre')" title="172.23.6.48 - Livre Confirmado">.48</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.49', 'Livre')" title="172.23.6.49 - Livre Confirmado">.49</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer hover:bg-emerald-600 select-none" onclick="openBindModal('172.23.6.50', 'Livre')" title="172.23.6.50 - Livre Confirmado">.50</div><div class="h-6 rounded-sm bg-error text-white font-bold flex items-center justify-center font-mono text-[10px] ring-2 ring-error/50 animate-pulse cursor-pointer shadow-md select-none" onclick="openBindModal('172.23.6.51', 'Discrepancia')" title="ALERTA: 172.23.6.51 - Não cadastrado mas responde a PING!">.51</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.52">.52</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.53">.53</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.54">.54</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.55">.55</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.56">.56</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.57">.57</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.58">.58</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.59">.59</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.60">.60</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.61">.61</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.62">.62</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.63">.63</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.64">.64</div><div class="h-6 rounded-sm bg-amber-400 text-slate-900 font-bold flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.65 - Cadastrado Offline">.65</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.66">.66</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.67">.67</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.68">.68</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.69">.69</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.70">.70</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.71">.71</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.72">.72</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.73">.73</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.74">.74</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.75">.75</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.76">.76</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.77">.77</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.78">.78</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.79">.79</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.80">.80</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.81">.81</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.82">.82</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.83">.83</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.84">.84</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.85">.85</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.86">.86</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.87">.87</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.88">.88</div><div class="h-6 rounded-sm bg-error text-white font-bold flex items-center justify-center font-mono text-[10px] ring-2 ring-error/50 animate-pulse cursor-pointer shadow-md select-none" onclick="openBindModal('172.23.6.89', 'Discrepancia')" title="ALERTA: 172.23.6.89 - Não cadastrado mas responde a PING!">.89</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.90">.90</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.91">.91</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.92">.92</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.93">.93</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.94">.94</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.95">.95</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.96">.96</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.97">.97</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.98">.98</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.99">.99</div><div class="h-6 rounded-sm bg-secondary text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.100">.100</div><div class="h-6 rounded-sm bg-surface-container text-on-surface-variant font-bold flex items-center justify-center font-mono text-[10px] col-span-2 select-none" title="Faixa .101 a .200 (100 endereços mapeados)">...101-200</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.201">.201</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.202">.202</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.203">.203</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.204">.204</div><div class="h-6 rounded-sm bg-emerald-500 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.205">.205</div><div class="h-6 rounded-sm bg-surface-container text-on-surface-variant font-bold flex items-center justify-center font-mono text-[10px] col-span-2 select-none" title="Bloco Livre Contíguo (.206 a .253)">...206-253</div><div class="h-6 rounded-sm bg-slate-700 text-white flex items-center justify-center font-mono text-[10px] cursor-pointer select-none" title="172.23.6.254 - Roteador Borda">.254</div></div>
+</div>
+</div>
+<!-- Search & Filter Controls Matrix -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-md">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Search Input -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold" for="filter-query">Buscar IP, Hostname, Setor ou Patrimônio</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-space-sm text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-space-md bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-secondary/50 placeholder:text-on-surface-variant/70" id="filter-query" placeholder="Ex: 172.23.6.15, PAT-2023, Fazenda..." type="text">
+</div>
+</div>
+<!-- Filter Status de Alocação -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold" for="filter-allocation">Status de Alocação</label>
+<select class="w-full h-9 px-space-md bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-secondary/50" id="filter-allocation"><option value="all" class="">Todos os Status</option>
+<option value="reserved" class="">Reservado</option>
+<option value="allocated" class="">Alocado</option>
+<option value="free" class="">Livre</option></select>
+</div>
+<!-- Filter Tipo de Equipamento -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold" for="filter-device">Tipo de Equipamento</label>
+<select class="w-full h-9 px-space-md bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-secondary/50" id="filter-device">
+<option value="all">Todos os Equipamentos</option>
+<option value="desktop">Computadores &amp; Workstations</option>
+<option value="notebook">Notebooks</option>
+<option value="server">Servidores Físicos / VMs</option>
+<option value="router">Roteadores / APs Wi-Fi</option>
+<option value="switch">Switches &amp; Racks</option>
+</select>
+</div>
+<!-- Filter Setor / Localização -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold" for="filter-department">Setor / Departamento</label>
+<select class="w-full h-9 px-space-md bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-secondary/50" id="filter-department">
+<option value="all">Todos os Setores</option>
+<option value="cti">CTI - Sala de Redes / Datacenter</option>
+<option value="fazenda">Fazenda - Gabinete &amp; Arrecadação</option>
+<option value="protocolo">Protocolo Geral</option>
+<option value="almoxarifado">Almoxarifado Central</option>
+<option value="gabinete">Gabinete do Prefeito / Secretário</option>
+<option value="juridico">Assessoria Jurídica</option>
+</select>
+</div>
+</div>
+<!-- Operational Filter Action Summary -->
+<div class="flex flex-wrap items-center justify-between pt-1 text-on-surface-variant border-t border-outline-variant/20 gap-2">
+<div class="flex flex-wrap items-center gap-space-xs text-xs"><button class="text-secondary hover:underline font-semibold" onclick="resetFilters()" type="button">Restaurar Padrão</button></div>
+<div class="flex items-center gap-space-md text-xs">
+<span class="font-code-sm text-on-surface-variant">Listando 8 de 254 endereços da faixa</span>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface transition-colors" title="Exportar Tabela em CSV" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface transition-colors" onclick="refreshTable()" title="Recarregar Matriz" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Primary IPAM Grid / Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-xs md:text-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider border-b border-outline-variant/30">
+<th class="py-space-md px-space-md font-semibold">Endereço IP</th>
+<th class="py-space-md px-space-md font-semibold">Status de Alocação</th>
+<th class="py-space-md px-space-md font-semibold">Teste Ping</th>
+<th class="py-space-md px-space-md font-semibold">Equipamento Associado</th>
+<th class="py-space-md px-space-md font-semibold">Nº Patrimônio</th>
+<th class="py-space-md px-space-md font-semibold">SETOR</th>
+<th class="py-space-md px-space-md font-semibold">USUÁRIO</th>
+<th class="py-space-md px-space-md text-right font-semibold">Ações Operacionais</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-md" id="ip-table-body">
+<!-- Row 1: Gateway / Infra Reservada -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py- space-md px-space-md font-code-md text-code-md font-bold text-primary">
+<span class="bg-slate-100 text-slate-800 px-2 py-0.5 rounded border border-slate-300">172.23.6.1</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-semibold bg-slate-800 text-white"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Reservado</span></td>
+<td class="py-space-md px-space-md"><div class="flex flex-col gap-0.5"><div class="flex items-center gap-1.5 font-code-sm text-[12px] text-emerald-700 font-semibold"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>Responde</div><span class="text-[10px] text-on-surface-variant font-code-sm leading-none pl-3.5" id="ping-time-172-23-6-1">Hoje às 14:32</span></div></td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5 font-medium text-primary">
+<span class="material-symbols-outlined text-[18px] text-slate-700">router</span>
+<span class="">Roteador Gateway Switch Core</span>
+</div>
+</td>
+<td class="py-space-md px-space-md font-code-sm font-semibold text-secondary">
+              PAT-2020-00001
+            </td>
+<td class="py-space-md px-space-md text-on-surface">
+              CTI - Sala de Redes (Rack Core 01)
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant font-medium">
+              Admin Redes Central
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-7 px-2 bg-surface-container hover:bg-surface-container-high text-primary text-xs rounded transition-colors" onclick="testPingSingle('172.23.6.1')" title="Testar Ping" type="button">
+                  Ping
+                </button>
+<button class="h-7 px-2 bg-surface-container hover:bg-surface-container-high text-on-surface text-xs rounded transition-colors" onclick="openBindModal('172.23.6.1', 'Reservado')" title="Editar Parâmetros" type="button">
+                  Editar
+                </button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Roteador Wi-Fi (Faixa 6 que gerencia DHCP Interno) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md font-code-md text-code-md font-bold text-primary">
+<span class="bg-surface-container px-2 py-0.5 rounded">172.23.6.10</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Alocado</span></td>
+<td class="py-space-md px-space-md"><div class="flex flex-col gap-0.5"><div class="flex items-center gap-1.5 font-code-sm text-[12px] text-emerald-700 font-semibold"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Responde</div><span class="text-[10px] text-on-surface-variant font-code-sm leading-none pl-3.5" id="ping-time-172-23-6-10">Hoje às 14:30</span></div></td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-medium text-primary">
+<span class="material-symbols-outlined text-[18px] text-secondary">wifi</span>
+<span class="">Roteador Wi-Fi TP-Link Archer C80</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Distribui DHCP Wi-Fi interno</span>
+</div>
+</td>
+<td class="py-space-md px-space-md font-code-sm font-semibold text-secondary">
+              PAT-2022-00431
+            </td>
+<td class="py-space-md px-space-md text-on-surface">
+              Gabinete - Sala de Reuniões
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant">
+              Mariana Albuquerque (Suporte)
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-7 px-2 bg-surface-container hover:bg-surface-container-high text-primary text-xs rounded transition-colors" onclick="testPingSingle('172.23.6.10')" type="button">Ping</button>
+<button class="h-7 px-2 bg-surface-container hover:bg-surface-container-high text-on-surface text-xs rounded transition-colors" onclick="openBindModal('172.23.6.10', 'Alocado')" type="button">Editar</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Computador Operacional (Confirmado / Online) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md font-code-md text-code-md font-bold text-primary">
+<span class="bg-surface-container px-2 py-0.5 rounded">172.23.6.15</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Alocado</span></td>
+<td class="py-space-md px-space-md"><div class="flex flex-col gap-0.5"><div class="flex items-center gap-1.5 font-code-sm text-[12px] text-emerald-700 font-semibold"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Responde</div><span class="text-[10px] text-on-surface-variant font-code-sm leading-none pl-3.5" id="ping-time-172-23-6-15">Hoje às 14:28</span></div></td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5 font-medium text-primary">
+<span class="material-symbols-outlined text-[18px] text-secondary">desktop_windows</span>
+<span class="">Dell OptiPlex 3080 SFF</span>
+</div>
+</td>
+<td class="py-space-md px-space-md font-code-sm font-semibold text-secondary">
+              PAT-2023-00812
+            </td>
+<td class="py-space-md px-space-md text-on-surface">
+              Fazenda - Balcão Arrecadação 02
+            </td>
+<td class="py-space-md px-space-md text-on-surface">
+              Roberto Silva Gomes
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-7 px-2 bg-surface-container hover:bg-surface-container-high text-primary text-xs rounded transition-colors" onclick="testPingSingle('172.23.6.15')" type="button">Ping</button>
+<button class="h-7 px-2 bg-surface-container hover:bg-surface-container-high text-error text-xs rounded transition-colors" onclick="confirmReleaseIp('172.23.6.15')" type="button">Liberar</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: ALERTA CRÍTICO: Discrepância / Falso Livre (Ping ativo sem cadastro) -->
+<tr class="bg-error-container/25 hover:bg-error-container/35 transition-colors border-l-4 border-error">
+<td class="py-space-md px-space-md font-code-md text-code-md font-bold text-error">
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded font-black">172.23.6.22</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-bold bg-error text-white shadow-sm"><span class="material-symbols-outlined text-[14px]">warning</span>Livre (Com Alerta)</span></td>
+<td class="py-space-md px-space-md"><div class="flex flex-col gap-0.5"><div class="flex items-center gap-1.5 font-code-sm text-[12px] text-error font-bold"><span class="w-2 h-2 rounded-full bg-error animate-ping"></span>Ping Ativo!</div><span class="text-[10px] text-error/80 font-code-sm leading-none pl-3.5" id="ping-time-172-23-6-22">Hoje às 14:35</span></div></td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-bold text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">device_unknown</span>
+                  Dispositivo Não Cadastrado
+                </span>
+
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-code-sm text-xs bg-error-container text-on-error-container px-2 py-0.5 rounded font-bold">Sem Patrimônio</span>
+</td>
+<td class="py-space-md px-space-md font-medium text-error">
+              Desconhecido / Em uso sem registro
+            </td>
+<td class="py-space-md px-space-md text-error italic text-xs">
+              IP colocado manualmente
+            </td>
+<td class="py-space-md px-space-md text-right">
+<button class="h-7 px-3 bg-error text-on-error hover:bg-on-error-container font-semibold text-xs rounded shadow-sm inline-flex items-center gap-1 transition-all" onclick="openBindModal('172.23.6.22', 'Discrepancia')" type="button">
+<span class="material-symbols-outlined text-[14px]">assignment</span>
+                Cadastrar Ativo
+              </button>
+</td>
+</tr>
+<!-- Row 5: Alocado mas Inativo / Offline -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md font-code-md text-code-md font-bold text-primary">
+<span class="bg-surface-container px-2 py-0.5 rounded">172.23.6.35</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-900 border border-amber-300"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Alocado (Inativo)</span></td>
+<td class="py-space-md px-space-md"><div class="flex flex-col gap-0.5"><div class="flex items-center gap-1.5 font-code-sm text-[12px] text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-slate-400"></span>Sem resposta ICMP</div><span class="text-[10px] text-on-surface-variant font-code-sm leading-none pl-3.5" id="ping-time-172-23-6-35">Hoje às 14:15</span></div></td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5 font-medium text-primary">
+<span class="material-symbols-outlined text-[18px] text-secondary">laptop_mac</span>
+<span class="">Notebook Dell Latitude 3420</span>
+</div>
+</td>
+<td class="py-space-md px-space-md font-code-sm font-semibold text-secondary">
+              PAT-2022-00194
+            </td>
+<td class="py-space-md px-space-md text-on-surface">
+              Gabinete - Assessoria Jurídica
+            </td>
+<td class="py-space-md px-space-md text-on-surface">
+              Dra. Helena Martins (Em trânsito)
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-7 px-2 bg-surface-container hover:bg-surface-container-high text-primary text-xs rounded transition-colors" onclick="testPingSingle('172.23.6.35')" type="button">Ping</button>
+<button class="h-7 px-2 bg-surface-container hover:bg-surface-container-high text-on-surface text-xs rounded transition-colors" onclick="openBindModal('172.23.6.35', 'Alocado')" type="button">Editar</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Outro ALERTA: Discrepância .37 -->
+<tr class="bg-error-container/25 hover:bg-error-container/35 transition-colors border-l-4 border-error">
+<td class="py-space-md px-space-md font-code-md text-code-md font-bold text-error">
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded font-black">172.23.6.37</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-bold bg-error text-white shadow-sm"><span class="material-symbols-outlined text-[14px]">warning</span>Livre (Com Alerta)</span></td>
+<td class="py-space-md px-space-md"><div class="flex flex-col gap-0.5"><div class="flex items-center gap-1.5 font-code-sm text-[12px] text-error font-bold"><span class="w-2 h-2 rounded-full bg-error animate-ping"></span>Ping Ativo!</div><span class="text-[10px] text-error/80 font-code-sm leading-none pl-3.5" id="ping-time-172-23-6-37">Hoje às 14:34</span></div></td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-bold text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">device_unknown</span>
+                  Dispositivo Não Cadastrado
+                </span>
+
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-code-sm text-xs bg-error-container text-on-error-container px-2 py-0.5 rounded font-bold">Sem Patrimônio</span>
+</td>
+<td class="py-space-md px-space-md font-medium text-error">
+              Provável Almoxarifado / CTI
+            </td>
+<td class="py-space-md px-space-md text-error italic text-xs">
+              Não identificado
+            </td>
+<td class="py-space-md px-space-md text-right">
+<button class="h-7 px-3 bg-error text-on-error hover:bg-on-error-container font-semibold text-xs rounded shadow-sm inline-flex items-center gap-1 transition-all" onclick="openBindModal('172.23.6.37', 'Discrepancia')" type="button">
+<span class="material-symbols-outlined text-[14px]">assignment</span>
+                Cadastrar Ativo
+              </button>
+</td>
+</tr>
+<!-- Row 7: Livre Confirmado .48 -->
+<tr class="bg-emerald-50/40 hover:bg-emerald-50/70 transition-colors">
+<td class="py-space-md px-space-md font-code-md text-code-md font-bold text-emerald-800">
+<span class="bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded border border-emerald-300">172.23.6.48</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300"><span class="material-symbols-outlined text-[14px]">check</span>Livre</span></td>
+<td class="py-space-md px-space-md"><div class="flex flex-col gap-0.5"><div class="flex items-center gap-1.5 font-code-sm text-[12px] text-emerald-800 font-semibold"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Sem resposta (Livre)</div><span class="text-[10px] text-on-surface-variant font-code-sm leading-none pl-3.5" id="ping-time-172-23-6-48">Hoje às 14:00</span></div></td>
+<td class="py-space-md px-space-md text-on-surface-variant italic">
+              Nenhum equipamento vinculado
+            </td>
+<td class="py-space-md px-space-md font-code-sm text-on-surface-variant">
+              --
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant">
+              Faixa Disponível
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant">
+              --
+            </td>
+<td class="py-space-md px-space-md text-right">
+<button class="h-7 px-3 bg-primary-container hover:bg-secondary text-on-primary font-medium text-xs rounded transition-colors shadow-sm inline-flex items-center gap-1" onclick="openBindModal('172.23.6.48', 'Livre')" type="button"><span class="material-symbols-outlined text-[18px]">add_link</span>
+<span class="">+ Alocar IP</span></button>
+</td>
+</tr>
+<!-- Row 8: Livre Confirmado .49 -->
+<tr class="bg-emerald-50/40 hover:bg-emerald-50/70 transition-colors">
+<td class="py-space-md px-space-md font-code-md text-code-md font-bold text-emerald-800">
+<span class="bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded border border-emerald-300">172.23.6.49</span>
+</td>
+<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300"><span class="material-symbols-outlined text-[14px]">check</span>Livre</span></td>
+<td class="py-space-md px-space-md"><div class="flex flex-col gap-0.5"><div class="flex items-center gap-1.5 font-code-sm text-[12px] text-emerald-800 font-semibold"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Sem resposta (Livre)</div><span class="text-[10px] text-on-surface-variant font-code-sm leading-none pl-3.5" id="ping-time-172-23-6-49">Hoje às 13:58</span></div></td>
+<td class="py-space-md px-space-md text-on-surface-variant italic">
+              Nenhum equipamento vinculado
+            </td>
+<td class="py-space-md px-space-md font-code-sm text-on-surface-variant">
+              --
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant">
+              Faixa Disponível
+            </td>
+<td class="py-space-md px-space-md text-on-surface-variant">
+              --
+            </td>
+<td class="py-space-md px-space-md text-right">
+<button class="h-7 px-3 bg-primary-container hover:bg-secondary text-on-primary font-medium text-xs rounded transition-colors shadow-sm inline-flex items-center gap-1" onclick="openBindModal('172.23.6.49', 'Livre')" type="button"><span class="material-symbols-outlined text-[18px]">add_link</span><span class="">+ Alocar IP</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Footer -->
+<div class="p-space-md bg-surface-container-lowest flex flex-col sm:flex-row items-center justify-between gap-space-md border-t border-outline-variant/20">
+<div class="flex items-center gap-space-sm text-xs text-on-surface-variant">
+<span class="">Mostrando registros 1 - 8 da Sub-rede <strong>172.23.6.0/24</strong> (Faixa com 74 livres confirmados)</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="h-8 px-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold rounded disabled:opacity-40" disabled="" type="button">Anterior</button>
+<button class="h-8 w-8 bg-primary text-on-primary font-code-sm text-xs font-bold rounded" type="button">1</button>
+<button class="h-8 w-8 bg-surface-container hover:bg-surface-container-high text-on-surface font-code-sm text-xs rounded" type="button">2</button>
+<button class="h-8 w-8 bg-surface-container hover:bg-surface-container-high text-on-surface font-code-sm text-xs rounded" type="button">3</button>
+<span class="px-1 text-on-surface-variant text-xs">...</span>
+<button class="h-8 w-8 bg-surface-container hover:bg-surface-container-high text-on-surface font-code-sm text-xs rounded" type="button">26</button>
+<button class="h-8 px-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold rounded" type="button">Próximo</button>
+</div>
+</div>
+</div>
+<!-- Operational Guide & Legal Note -->
+
+</div>
+<!-- Modal: Vincular / Alocar IP a Equipamento Patrimoniado -->
+<div class="fixed inset-0 bg-primary/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden" id="modal-bind-ip"><div class="bg-surface-container-lowest rounded-xl shadow-2xl border border-outline-variant/40 w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh]">
+  <!-- Modal Header -->
+  <div class="p-space-lg bg-primary-container text-on-primary flex items-center justify-between border-b border-outline-variant/30">
+    <div class="flex items-center gap-space-sm">
+      <div class="w-9 h-9 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary-container">
+        <span class="material-symbols-outlined text-[22px]">add_link</span>
+      </div>
+      <div>
+        <h3 class="font-headline-sm text-headline-sm font-bold leading-tight" id="modal-title">Alocar Endereço IP ao Equipamento</h3>
+        <p class="text-xs text-on-primary-container font-mono mt-0.5" id="modal-subtitle">IP Selecionado: <span class="font-bold text-white bg-primary px-1.5 py-0.5 rounded" id="modal-display-ip">172.23.6.48</span> (Faixa Principal - Estações/Servidores)</p>
+      </div>
+    </div>
+    <button class="p-1.5 hover:bg-surface-container-highest/20 rounded-lg text-on-primary transition-colors cursor-pointer" onclick="closeBindModal()" type="button" title="Fechar">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+  </div>
+
+  <!-- Modal Form -->
+  <form class="p-gutter overflow-y-auto flex flex-col gap-space-md" id="form-bind-ip" onsubmit="event.preventDefault(); submitIpAllocation();">
+    <!-- Alert box when opened from discrepancy -->
+    <div class="p-space-sm bg-error-container/40 border border-error/50 rounded-lg flex items-start gap-2.5 hidden" id="modal-alert-discrepancy">
+      <span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">warning</span>
+      <div class="text-xs text-on-error-container leading-relaxed">
+        <strong class="font-bold">Atenção: Discrepância Detectada!</strong> Este endereço IP está respondendo a testes de ping na rede física. Vincule ao equipamento correspondente para regularizar o cadastro no inventário patrimonial.
+      </div>
+    </div>
+
+    <!-- Seleção do Dispositivo do Inventário -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md"><div class="flex flex-col gap-1.5"><label class="text-xs font-medium text-on-surface-variant flex items-center justify-between" for="modal-select-sector"><span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">domain</span><span class="font-semibold text-primary">1º Setor / Secretaria / Departamento *</span></span></label><select class="w-full h-10 px-space-md bg-surface-container-low text-on-surface font-body-md text-xs sm:text-sm rounded-lg border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-secondary/50 cursor-pointer" id="modal-select-sector" onchange="handleSectorChange(this.value)" required=""><option value="" disabled="">-- Selecione o Setor / Secretaria --</option><option value="fazenda" selected="">Secretaria de Fazenda / Arrecadação</option><option value="gabinete">Gabinete do Prefeito / Jurídico</option><option value="protocolo">Protocolo Geral</option><option value="cti">CTI / Infraestrutura e Redes</option><option value="rh">Administração / Recursos Humanos</option><option value="saude">Saúde / UBS Central</option><option value="almoxarifado">Almoxarifado Central</option></select></div><div class="flex flex-col gap-1.5"><label class="text-xs font-medium text-on-surface-variant flex items-center justify-between" for="modal-select-inventory"><span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">devices</span><span class="font-semibold text-primary">2º Equipamento Sem IP no Setor *</span></span><span class="text-[11px] font-normal text-secondary bg-secondary/15 px-1.5 py-0.5 rounded font-mono" id="inventory-device-count">1 disponível</span></label><select class="w-full h-10 px-space-md bg-surface-container-low text-on-surface font-body-md text-xs sm:text-sm rounded-lg border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-secondary/50 cursor-pointer" id="modal-select-inventory" onchange="updateSelectedDeviceDetails(this.value)" required=""><option value="1029" selected="">[ID #1029] Computador Dell OptiPlex 3090 - PAT: 2023-00912</option></select></div></div>
+
+    <!-- Card de Resumo do Equipamento Selecionado -->
+    <div class="p-space-md bg-surface-container-low rounded-xl border border-outline-variant/30 flex flex-col gap-2.5">
+      <div class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+        <span class="font-label-sm text-[11px] font-bold uppercase tracking-wider text-secondary flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[15px]">devices</span> Detalhes do Equipamento Selecionado
+        </span>
+        <span class="font-code-sm text-[11px] bg-secondary/15 text-secondary font-bold px-2 py-0.5 rounded" id="summary-id">ID #1029</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md text-xs">
+        <div class="flex flex-col gap-0.5">
+          <span class="text-on-surface-variant font-medium">Tipo &amp; Modelo:</span>
+          <span class="font-semibold text-primary" id="summary-device">Computador Dell OptiPlex 3090</span>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <span class="text-on-surface-variant font-medium">Nº Patrimônio:</span>
+          <span class="font-code-sm font-bold text-secondary" id="summary-patrimonio">PAT-2023-00912</span>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <span class="text-on-surface-variant font-medium">Setor:</span>
+          <span class="font-medium text-on-surface" id="summary-setor">Fazenda - Arrecadação (Balcão 03)</span>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <span class="text-on-surface-variant font-medium">Usuário:</span>
+          <span class="font-medium text-on-surface" id="summary-responsavel">Ana Clara Menezes (Mat. 902.114)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configuração de Rede -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+      <div class="flex flex-col gap-1">
+        <label class="font-label-sm text-label-sm font-semibold text-primary" for="modal-input-ip">Endereço IP a Vincular *</label>
+        <div class="relative flex items-center">
+          <span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-[18px]">dns</span>
+          <input class="w-full h-9 pl-8 pr-2 bg-surface-container font-code-md text-code-md font-bold text-primary rounded-lg border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-secondary/50" id="modal-input-ip" type="text" value="172.23.6.48" required="">
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Observações Operacionais -->
+    <div class="flex flex-col gap-1">
+      
+      
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="pt-space-md flex items-center justify-end gap-space-md border-t border-outline-variant/30 mt-1">
+      <button class="h-9 px-space-md bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-xs rounded-lg transition-colors cursor-pointer" onclick="closeBindModal()" type="button">
+        Cancelar
+      </button>
+      <button class="h-9 px-space-lg bg-primary hover:bg-secondary text-on-primary font-semibold text-xs rounded-lg transition-colors shadow-sm inline-flex items-center gap-1.5 cursor-pointer" type="submit">
+        <span class="material-symbols-outlined text-[16px]">task_alt</span>
+        <span class="">Confirmar Alocação de IP</span>
+      </button>
+    </div>
+  <script class="">
+const sectorDevices = {
+  'fazenda': [
+    { id: '1029', name: 'Computador Dell OptiPlex 3090', pat: 'PAT-2023-00912', setor: 'Fazenda - Arrecadação (Balcão 03)', resp: 'Ana Clara Menezes (Mat. 902.114)' },
+    { id: '1048', name: 'Notebook Dell Inspiron 15', pat: 'PAT-2023-01044', setor: 'Fazenda - Tributação & Fiscalização', resp: 'Marcos Vinícius Prado' }
+  ],
+  'gabinete': [
+    { id: '1034', name: 'Notebook Lenovo ThinkPad L14', pat: 'PAT-2024-00105', setor: 'Gabinete - Assessoria Jurídica', resp: 'Dra. Helena Martins' }
+  ],
+  'protocolo': [
+    { id: '1038', name: 'Impressora HP LaserJet Pro M404', pat: 'PAT-2022-00441', setor: 'Protocolo Geral - Balcão Central', resp: 'Equipe Protocolo' }
+  ],
+  'cti': [
+    { id: '1042', name: 'Servidor Dell PowerEdge R640', pat: 'PAT-2021-00018', setor: 'CTI / CPD Sala de Servidores', resp: 'Admin Redes Central' }
+  ],
+  'rh': [
+    { id: '1045', name: 'Telefone IP Grandstream GXP1625', pat: 'PAT-2023-00780', setor: 'Administração - Recursos Humanos', resp: 'Cláudia Regina Barros' }
+  ],
+  'saude': [
+    { id: '1051', name: 'Workstation HP ProDesk 400', pat: 'PAT-2024-00311', setor: 'Saúde / UBS Central - Triagem', resp: 'Coordenação Enfermagem' }
+  ],
+  'almoxarifado': [
+    { id: '1056', name: 'Terminal Leitor Código de Barras Honeywell', pat: 'PAT-2022-00877', setor: 'Almoxarifado Central - Expedição', resp: 'José Carlos Souza' }
+  ]
+};
+
+function handleSectorChange(sectorKey) {
+  const devSelect = document.getElementById('modal-select-inventory');
+  const countLabel = document.getElementById('inventory-device-count');
+  if (!devSelect) return;
+  
+  const items = sectorDevices[sectorKey] || [];
+  devSelect.innerHTML = '';
+  
+  if (countLabel) {
+    countLabel.innerText = `${items.length} ${items.length === 1 ? 'disponível' : 'disponíveis'}`;
+  }
+  
+  if (items.length === 0) {
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.innerText = '-- Nenhum equipamento sem IP neste setor --';
+    opt.disabled = true;
+    opt.selected = true;
+    devSelect.appendChild(opt);
+    return;
+  }
+  
+  items.forEach((item, index) => {
+    const opt = document.createElement('option');
+    opt.value = item.id;
+    opt.innerText = `[ID #${item.id}] ${item.name} - PAT: ${item.pat}`;
+    if (index === 0) opt.selected = true;
+    devSelect.appendChild(opt);
+  });
+  
+  updateSelectedDeviceDetails(items[0].id);
+}
+
+function updateSelectedDeviceDetails(devId) {
+  let matchedItem = null;
+  for (const s in sectorDevices) {
+    const found = sectorDevices[s].find(x => x.id === devId);
+    if (found) { matchedItem = found; break; }
+  }
+  if (!matchedItem) return;
+  
+  const summaryId = document.getElementById('summary-id');
+  const summaryDevice = document.getElementById('summary-device');
+  const summaryPat = document.getElementById('summary-patrimonio');
+  const summarySetor = document.getElementById('summary-setor');
+  const summaryResp = document.getElementById('summary-responsavel');
+  
+  if (summaryId) summaryId.innerText = `ID #${matchedItem.id}`;
+  if (summaryDevice) summaryDevice.innerText = matchedItem.name;
+  if (summaryPat) summaryPat.innerText = matchedItem.pat;
+  if (summarySetor) summarySetor.innerText = matchedItem.setor;
+  if (summaryResp) summaryResp.innerText = matchedItem.resp;
+}
+</script></form>
+</div></div>
+<script>
+  function openBindModal(ip, type) {
+    const modal = document.getElementById('modal-bind-ip');
+    const inputIp = document.getElementById('modal-input-ip');
+    const alertBox = document.getElementById('modal-alert-discrepancy');
+    const title = document.getElementById('modal-title');
+
+    if (inputIp) inputIp.value = ip;
+    if (modal) modal.classList.remove('hidden');
+
+    if (type === 'Discrepancia') {
+      if (alertBox) alertBox.classList.remove('hidden');
+      if (title) title.innerText = 'Regularizar IP Fantasma / Discrepância';
+    } else {
+      if (alertBox) alertBox.classList.add('hidden');
+      if (title) title.innerText = 'Alocar Endereço IP a Equipamento';
+    }
+  }
+
+  function closeBindModal() {
+    const modal = document.getElementById('modal-bind-ip');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function submitIpAllocation() {
+    const ip = document.getElementById('modal-input-ip')?.value || '';
+    const pat = document.getElementById('modal-input-patrimonio')?.value || '';
+    alert(`Sucesso! O IP ${ip} foi formalmente vinculado ao Patrimônio ${pat} e atualizado na matriz de rede.`);
+    closeBindModal();
+  }
+
+  function testPingSingle(ip) {
+    alert(`Enviando 4 pacotes ICMP para ${ip}...\nResposta: 0% de perda. Host ativo e respondendo na sub-rede.`);
+  }
+
+  function confirmReleaseIp(ip) {
+    if (confirm(`Deseja realmente liberar o endereço IP ${ip}? O vínculo com o patrimônio será removido da faixa ativa.`)) {
+      alert(`O IP ${ip} foi liberado e agora consta como Livre / Disponível.`);
+    }
+  }
+
+  function filterByDiscrepancy() {
+    const filterSelect = document.getElementById('filter-allocation');
+    if (filterSelect) {
+      filterSelect.value = 'discrepancy';
+      alert('Filtrando por discrepâncias operacionais: 4 IPs detectados em uso sem cadastro no sistema.');
+    }
+  }
+
+  function resetFilters() {
+    const filterSelect = document.getElementById('filter-allocation');
+    const query = document.getElementById('filter-query');
+    if (filterSelect) filterSelect.value = 'all';
+    if (query) query.value = '';
+    alert('Filtros restaurados para visão completa da faixa 172.23.6.0/24.');
+  }
+
+  function refreshTable() {
+    alert('Matriz de IPs atualizada com os registros mais recentes da rede física.');
+  }
+
+  document.getElementById('btn-batch-ping')?.addEventListener('click', function() {
+    this.disabled = true;
+    const oldHtml = this.innerHTML;
+    this.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Disparando ICMP...</span>';
+    setTimeout(() => {
+      this.disabled = false;
+      this.innerHTML = oldHtml;
+      alert('Varredura ICMP concluída!\n- 168 IPs alocados responderam normalmente.\n- 4 Discrepâncias confirmadas (respondendo sem cadastro).\n- 74 IPs livres confirmados (sem resposta).');
+    }, 1200);
+  });
+
+  // Switch Subnet tabs
+  document.getElementById('tab-faixa-5')?.addEventListener('click', function() {
+    alert('Alternando para a Sub-rede 172.23.5.0/24 (Telefonia IP / VoIP). Carregando matriz de ramais e telefones Grandstream.');
+  });
+</script></main></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
