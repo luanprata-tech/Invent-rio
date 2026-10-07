@@ -1,3 +1,5 @@
+import asyncio
+from pydantic import BaseModel
 from fastapi import FastAPI, Request, Depends
 from sqlalchemy.orm import Session
 from app.api.deps import get_db
@@ -90,16 +92,104 @@ def read_inventario(request: Request, db: Session = Depends(get_db)):
             "brands": brands,
             "models": models,
             "departments": departments,
-            "funding_sources": funding_sources
+            "funding_sources": funding_sources,
+            "total_assets": total
         }
     )
 
 @app.get("/ips", response_class=HTMLResponse)
-def read_ips(request: Request, db: Session = Depends(get_db)):
-    ips = db.query(IP).all()
+def read_ips(request: Request, db: Session = Depends(get_db), subnet: str = "172.23.6.0/24"):
+    prefix = subnet.split('.0/24')[0] + '.'
+    ips_list = db.query(IP).filter(IP.ip_address.like(f"{prefix}%")).all()
+    ips_list.sort(key=lambda ip: int(ip.ip_address.split('.')[-1]))
+    
+    ip_dict = {ip.ip_address: ip for ip in ips_list}
+    
+    allocated_count = sum(1 for ip in ips_list if ip.status in ['Alocado', 'Reservado'])
+    falso_livre_count = sum(1 for ip in ips_list if ip.status == 'Livre' and ip.last_ping_result == True)
+    total_utilizable = 254
+    livres_count = total_utilizable - allocated_count - falso_livre_count
+    allocated_pct = round((allocated_count / total_utilizable) * 100, 1)
+    
+    total_assets = db.query(Asset).filter(Asset.is_deleted == False).count()
+    departments = db.query(Department).all()
+    
     return templates.TemplateResponse(
         request=request,
         name="ips.html",
-        context={"ips": ips}
+        context={
+            "ips": ips_list, 
+            "ip_dict": ip_dict,
+            "total_assets": total_assets,
+            "current_subnet": subnet,
+            "prefix": prefix,
+            "allocated_count": allocated_count,
+            "allocated_pct": allocated_pct,
+            "livres_count": livres_count,
+            "falso_livre_count": falso_livre_count,
+            "departments": departments
+        }
     )
 
+class PingRequest(BaseModel):
+    subnet: str
+
+async def ping_ip(ip_address: str):
+    proc = await asyncio.create_subprocess_exec(
+        'ping', '-c', '1', '-W', '1', ip_address,
+        stdout=asyncio.subprocess.DEVNULL,
+        stderr=asyncio.subprocess.DEVNULL
+    )
+    await proc.wait()
+    return ip_address, proc.returncode == 0
+
+@app.post("/api/ips/ping")
+async def ping_subnet(req: PingRequest, db: Session = Depends(get_db)):
+    prefix = req.subnet.split('.0/24')[0] + '.'
+    ips_to_ping = [f"{prefix}{i}" for i in range(1, 255)]
+    results = await asyncio.gather(*(ping_ip(ip) for ip in ips_to_ping))
+    ping_status = {ip: is_up for ip, is_up in results}
+    
+    db_ips = db.query(IP).filter(IP.ip_address.like(f"{prefix}%")).all()
+    db_ips_dict = {ip.ip_address: ip for ip in db_ips}
+    
+    for ip_str, is_up in ping_status.items():
+        if ip_str in db_ips_dict:
+            db_ips_dict[ip_str].last_ping_result = is_up
+        else:
+            if is_up:
+                new_ip = IP(ip_address=ip_str, subnet=req.subnet, status='Livre', last_ping_result=True)
+                db.add(new_ip)
+    
+    db.commit()
+    return {"message": "Ping concluído", "success": True}
+
+class AllocateIPRequest(BaseModel):
+    ip_address: str
+    asset_id: int
+    subnet: str
+
+@app.post("/api/ips/allocate")
+def allocate_ip(req: AllocateIPRequest, db: Session = Depends(get_db)):
+    # Create or update IP
+    db_ip = db.query(IP).filter(IP.ip_address == req.ip_address).first()
+    if not db_ip:
+        db_ip = IP(ip_address=req.ip_address, subnet=req.subnet, status='Alocado', asset_id=req.asset_id)
+        db.add(db_ip)
+    else:
+        db_ip.status = 'Alocado'
+        db_ip.asset_id = req.asset_id
+    db.commit()
+    return {"success": True}
+
+class ReleaseIPRequest(BaseModel):
+    ip_address: str
+
+@app.post("/api/ips/release")
+def release_ip(req: ReleaseIPRequest, db: Session = Depends(get_db)):
+    db_ip = db.query(IP).filter(IP.ip_address == req.ip_address).first()
+    if db_ip:
+        db_ip.status = 'Livre'
+        db_ip.asset_id = None
+        db.commit()
+    return {"success": True}

@@ -6,5 +6,5 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
-    environment:
-      - SQLALCHEMY_DATABASE_URI=sqlite:///./sql_app.db
+    env_file:
+      - .env

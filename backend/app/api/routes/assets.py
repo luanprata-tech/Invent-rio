@@ -66,6 +66,27 @@ def create_asset(item: AssetCreate, db: Session = Depends(get_db)):
 
     return db_asset
 
+@router.get("/unallocated")
+def get_unallocated_assets(department: str, include_asset_id: Optional[int] = None, db: Session = Depends(get_db)):
+    # Find assets in department that are not deleted
+    assets = db.query(Asset).filter(
+        Asset.department == department,
+        Asset.is_deleted == False
+    ).all()
+    
+    unallocated = []
+    for a in assets:
+        if not a.ips or (include_asset_id and a.id == include_asset_id):
+            unallocated.append({
+                "id": a.id,
+                "category": a.category,
+                "brand": a.brand,
+                "model": a.model,
+                "patrimony_number": a.patrimony_number,
+                "responsible_user": a.responsible_user
+            })
+    return unallocated
+
 @router.get("/{asset_id}")
 def get_asset(asset_id: int, db: Session = Depends(get_db)):
     asset = db.query(Asset).filter(Asset.id == asset_id).first()

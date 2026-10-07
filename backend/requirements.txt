@@ -8,3 +8,5 @@ pydantic
 pydantic-settings
 python-multipart
 jinja2
+pymysql
+python-dotenv
