@@ -10,6 +10,7 @@ class Asset(Base):
     category = Column(String(255), index=True) # Tipo de Equipamento
     brand = Column(String(255)) # Fabricante / Marca
     model = Column(String(255)) # Modelo do Ativo
+    device_name = Column(String(255), nullable=True) # Nome do Dispositivo
     serial_number = Column(String(255), unique=True, index=True) # S/N
     patrimony_number = Column(String(255), unique=True, nullable=True, index=True) # PAT
     acquisition_date = Column(String(255), nullable=True) # Data de Aquisição (String para simplificar formatação dd/mm/aaaa)

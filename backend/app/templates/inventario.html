@@ -226,7 +226,7 @@
     <td class="py-space-md px-space-md whitespace-nowrap text-center font-code-sm text-code-sm text-on-surface-variant font-bold">#{{ '{:03d}'.format(asset.id) }}</td>
     <td class="py-space-md px-space-md">
         <div class="flex flex-col max-w-xs">
-            <span class="font-body-md text-body-md font-semibold text-primary truncate">{{ asset.brand }} {{ asset.model }}</span>
+            <span class="font-body-md text-body-md font-semibold text-primary truncate">{% if asset.device_name %}{{ asset.device_name }} - {% endif %}{{ asset.brand }} {% if asset.model %}{{ asset.model }}{% endif %}</span>
             <span class="text-on-surface-variant text-xs">{{ asset.responsible_user or 'Sem Responsável' }}</span>
         </div>
     </td>
@@ -668,7 +668,7 @@ document.addEventListener('DOMContentLoaded', aplicarFiltros);
           </div>
           <div class="flex flex-col gap-1">
             <label class="font-label-sm text-label-sm text-on-surface-variant">Fabricante / Marca *</label>
-            <select required="" name="brand" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+            <select required="" name="brand" onchange="filterModels(this, this.closest('form').querySelector('select[name=\'model\']'))" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
               <option value="">Selecione a marca...</option>
               {% for item in brands %}
               <option value="{{ item.name }}">{{ item.name }}</option>
@@ -676,17 +676,21 @@ document.addEventListener('DOMContentLoaded', aplicarFiltros);
             </select>
           </div>
           <div class="flex flex-col gap-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant">Modelo do Ativo *</label>
-            <select required="" name="model" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Modelo do Ativo</label>
+            <select name="model" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
               <option value="">Selecione o modelo...</option>
               {% for item in models %}
-              <option value="{{ item.name }}">{{ item.name }}</option>
+              <option value="{{ item.name }}" data-brand="{{ item.brand_name }}">{{ item.name }}</option>
               {% endfor %}
             </select>
           </div>
           <div class="flex flex-col gap-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant">Número de Série (S/N) *</label>
-            <input required="" name="serial_number" type="text" placeholder="ex: BR-G8942-01A ou PF-28C1099" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Nome do Dispositivo (Hostname) <span class="text-xs text-outline">(opcional)</span></label>
+            <input name="device_name" type="text" placeholder="ex: PC-TI-01" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Número de Série (S/N)</label>
+            <input name="serial_number" type="text" placeholder="ex: BR-G8942-01A ou PF-28C1099" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
           </div>
         </div>
       </div>
@@ -712,8 +716,8 @@ document.addEventListener('DOMContentLoaded', aplicarFiltros);
   <input required="" type="date" name="acquisition_date" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
 </div>
 <div class="flex flex-col gap-1">
-  <label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Fonte de Recursos / Dotação *</label>
-  <select required="" name="funding_source" class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
+  <label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Fonte de Recursos / Dotação</label>
+  <select name="funding_source" class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
               <option value="">Selecione a fonte...</option>
               {% for item in funding_sources %}
               <option value="{{ item.name }}">{{ item.name }}</option>
@@ -907,8 +911,14 @@ function togglePatPendente(checkbox) {
       <div id="tab-modelos" class="tab-content hidden">
         <h3 class="font-label-lg mb-4 text-primary">Cadastrar Novo Modelo</h3>
         <div class="flex gap-2">
+          <select id="select-brand-for-model" class="rounded-lg border-outline-variant focus:border-primary focus:ring-primary/20 p-2 text-body-sm">
+            <option value="">Marca...</option>
+            {% for item in brands %}
+            <option value="{{ item.name }}">{{ item.name }}</option>
+            {% endfor %}
+          </select>
           <input type="text" id="input-modelo" placeholder="Ex: OptiPlex 7090" class="flex-1 rounded-lg border-outline-variant focus:border-primary focus:ring-primary/20 p-2">
-          <button onclick="salvarAtributo('models', 'input-modelo', this)" class="bg-primary hover:bg-primary-container text-on-primary font-label-md px-4 rounded-lg">Salvar</button>
+          <button onclick="salvarModelo(this)" class="bg-primary hover:bg-primary-container text-on-primary font-label-md px-4 rounded-lg">Salvar</button>
         </div>
         <div class="mt-4 bg-white rounded-lg border border-outline-variant overflow-hidden">
           <table class="w-full text-left border-collapse">
@@ -1099,7 +1109,7 @@ function togglePatPendente(checkbox) {
           </div>
           <div class="flex flex-col gap-1">
             <label class="font-label-sm text-label-sm text-on-surface-variant">Fabricante / Marca *</label>
-            <select required="" name="brand" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+            <select required="" name="brand" onchange="filterModels(this, this.closest('form').querySelector('select[name=\'model\']'))" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
               <option value="">Selecione a marca...</option>
               {% for item in brands %}
               <option value="{{ item.name }}">{{ item.name }}</option>
@@ -1107,17 +1117,21 @@ function togglePatPendente(checkbox) {
             </select>
           </div>
           <div class="flex flex-col gap-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant">Modelo do Ativo *</label>
-            <select required="" name="model" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Modelo do Ativo</label>
+            <select name="model" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
               <option value="">Selecione o modelo...</option>
               {% for item in models %}
-              <option value="{{ item.name }}">{{ item.name }}</option>
+              <option value="{{ item.name }}" data-brand="{{ item.brand_name }}">{{ item.name }}</option>
               {% endfor %}
             </select>
           </div>
           <div class="flex flex-col gap-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant">Número de Série (S/N) *</label>
-            <input required="" name="serial_number" type="text" placeholder="ex: BR-G8942-01A ou PF-28C1099" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Nome do Dispositivo (Hostname) <span class="text-xs text-outline">(opcional)</span></label>
+            <input name="device_name" type="text" placeholder="ex: PC-TI-01" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Número de Série (S/N)</label>
+            <input name="serial_number" type="text" placeholder="ex: BR-G8942-01A ou PF-28C1099" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-code-sm text-code-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
           </div>
         </div>
       </div>
@@ -1143,8 +1157,8 @@ function togglePatPendente(checkbox) {
   <input required="" type="date" name="acquisition_date" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
 </div>
 <div class="flex flex-col gap-1">
-  <label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Fonte de Recursos / Dotação *</label>
-  <select required="" name="funding_source" class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
+  <label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Fonte de Recursos / Dotação</label>
+  <select name="funding_source" class="h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 border-0">
               <option value="">Selecione a fonte...</option>
               {% for item in funding_sources %}
               <option value="{{ item.name }}">{{ item.name }}</option>

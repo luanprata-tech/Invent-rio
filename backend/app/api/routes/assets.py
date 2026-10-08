@@ -12,8 +12,9 @@ router = APIRouter()
 class AssetCreate(BaseModel):
     category: str
     brand: str
-    model: str
-    serial_number: str
+    model: Optional[str] = None
+    device_name: Optional[str] = None
+    serial_number: Optional[str] = None
     patrimony_number: Optional[str] = None
     acquisition_date: Optional[str] = None
     funding_source: Optional[str] = None
@@ -24,8 +25,9 @@ class AssetCreate(BaseModel):
 @router.post("/", status_code=status.HTTP_201_CREATED)
 def create_asset(item: AssetCreate, db: Session = Depends(get_db)):
     # Check if serial number already exists
-    if db.query(Asset).filter(Asset.serial_number == item.serial_number).first():
-        raise HTTPException(status_code=400, detail="Número de série já cadastrado")
+    if item.serial_number and item.serial_number.strip():
+        if db.query(Asset).filter(Asset.serial_number == item.serial_number.strip()).first():
+            raise HTTPException(status_code=400, detail="Número de série já cadastrado")
         
     # Check if PAT already exists (only if not SEM-PAT/None)
     if item.patrimony_number and item.patrimony_number != 'SEM-PAT':
@@ -36,8 +38,9 @@ def create_asset(item: AssetCreate, db: Session = Depends(get_db)):
     db_asset = Asset(
         category=item.category,
         brand=item.brand,
-        model=item.model,
-        serial_number=item.serial_number,
+        model=None if not item.model else item.model.strip(),
+        device_name=None if not item.device_name else item.device_name.strip(),
+        serial_number=None if not item.serial_number else item.serial_number.strip(),
         patrimony_number=None if item.patrimony_number in ("SEM-PAT", "", None) else item.patrimony_number,
         acquisition_date=item.acquisition_date,
         funding_source=item.funding_source,
@@ -99,6 +102,7 @@ def get_asset(asset_id: int, db: Session = Depends(get_db)):
         "category": asset.category,
         "brand": asset.brand,
         "model": asset.model,
+        "device_name": asset.device_name,
         "serial_number": asset.serial_number,
         "patrimony_number": asset.patrimony_number or "SEM-PAT",
         "acquisition_date": asset.acquisition_date,
@@ -115,8 +119,9 @@ def update_asset(asset_id: int, asset_in: AssetCreate, db: Session = Depends(get
         raise HTTPException(status_code=404, detail="Asset not found")
     
     # Check for uniqueness if S/N or PAT changed
-    if db_asset.serial_number != asset_in.serial_number:
-        if db.query(Asset).filter(Asset.serial_number == asset_in.serial_number).first():
+    sn_in = None if not asset_in.serial_number else asset_in.serial_number.strip()
+    if db_asset.serial_number != sn_in:
+        if sn_in and db.query(Asset).filter(Asset.serial_number == sn_in).first():
             raise HTTPException(status_code=400, detail="Serial Number already exists")
     if asset_in.patrimony_number != "SEM-PAT" and db_asset.patrimony_number != asset_in.patrimony_number:
         if db.query(Asset).filter(Asset.patrimony_number == asset_in.patrimony_number).first():
@@ -124,8 +129,9 @@ def update_asset(asset_id: int, asset_in: AssetCreate, db: Session = Depends(get
             
     db_asset.category = asset_in.category
     db_asset.brand = asset_in.brand
-    db_asset.model = asset_in.model
-    db_asset.serial_number = asset_in.serial_number
+    db_asset.model = None if not asset_in.model else asset_in.model.strip()
+    db_asset.device_name = None if not asset_in.device_name else asset_in.device_name.strip()
+    db_asset.serial_number = sn_in
     db_asset.patrimony_number = None if asset_in.patrimony_number in ("SEM-PAT", "", None) else asset_in.patrimony_number
     db_asset.acquisition_date = asset_in.acquisition_date
     db_asset.funding_source = asset_in.funding_source

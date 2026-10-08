@@ -15,6 +15,7 @@ class ModelAttr(Base):
     __tablename__ = "models"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(255), unique=True, index=True)
+    brand_name = Column(String(255), nullable=True, index=True)
 
 class Department(Base):
     __tablename__ = "departments"

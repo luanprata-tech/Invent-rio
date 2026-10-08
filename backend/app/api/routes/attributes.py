@@ -17,6 +17,17 @@ class AttributeResponse(BaseModel):
     class Config:
         orm_mode = True
 
+class ModelCreate(BaseModel):
+    name: str
+    brand_name: str
+
+class ModelResponse(BaseModel):
+    id: int
+    name: str
+    brand_name: str | None = None
+    class Config:
+        orm_mode = True
+
 # --- BRANDS ---
 @router.get("/brands", response_model=List[AttributeResponse])
 def get_brands(db: Session = Depends(get_db)):
@@ -31,13 +42,13 @@ def create_brand(item: AttributeCreate, db: Session = Depends(get_db)):
     return db_item
 
 # --- MODELS ---
-@router.get("/models", response_model=List[AttributeResponse])
+@router.get("/models", response_model=List[ModelResponse])
 def get_models(db: Session = Depends(get_db)):
     return db.query(ModelAttr).all()
 
-@router.post("/models", response_model=AttributeResponse)
-def create_model(item: AttributeCreate, db: Session = Depends(get_db)):
-    db_item = ModelAttr(name=item.name)
+@router.post("/models", response_model=ModelResponse)
+def create_model(item: ModelCreate, db: Session = Depends(get_db)):
+    db_item = ModelAttr(name=item.name, brand_name=item.brand_name)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
@@ -101,12 +112,13 @@ def delete_brand(item_id: int, db: Session = Depends(get_db)):
     db.commit()
     return {"detail": "Item deleted"}
 
-@router.put("/models/{item_id}", response_model=AttributeResponse)
-def update_modelattr(item_id: int, item: AttributeCreate, db: Session = Depends(get_db)):
+@router.put("/models/{item_id}", response_model=ModelResponse)
+def update_modelattr(item_id: int, item: ModelCreate, db: Session = Depends(get_db)):
     db_item = db.query(ModelAttr).filter(ModelAttr.id == item_id).first()
     if not db_item:
         raise HTTPException(status_code=404, detail="Item not found")
     db_item.name = item.name
+    db_item.brand_name = item.brand_name
     db.commit()
     db.refresh(db_item)
     return db_item

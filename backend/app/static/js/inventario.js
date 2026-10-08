@@ -422,3 +422,61 @@ async function confirmarExclusaoEquipamento() {
     modalDelete.classList.remove('hidden');
     setTimeout(() => modalDelete.classList.remove('opacity-0', 'pointer-events-none'), 10);
 }
+
+function filterModels(brandSelect, modelSelect) {
+    const selectedBrand = brandSelect.value;
+    const options = modelSelect.querySelectorAll('option');
+    options.forEach(opt => {
+        if (!opt.value) return; // Keep the default "Selecione..."
+        if (opt.getAttribute('data-brand') === selectedBrand || !selectedBrand) {
+            opt.style.display = 'block';
+        } else {
+            opt.style.display = 'none';
+        }
+    });
+    // Reset model value if the selected one is now hidden
+    const selectedOpt = modelSelect.querySelector('option:checked');
+    if (selectedOpt && selectedOpt.style.display === 'none') {
+        modelSelect.value = '';
+    }
+}
+
+async function salvarModelo(btn) {
+    if (isSaving) return;
+    isSaving = true;
+    if (btn) { btn.disabled = true; btn.classList.add('opacity-50', 'cursor-not-allowed'); }
+    const input = document.getElementById('input-modelo');
+    const brandSelect = document.getElementById('select-brand-for-model');
+    const name = input.value.trim();
+    const brand_name = brandSelect ? brandSelect.value : '';
+    
+    if (!name || !brand_name) { 
+        resetSavingState(); 
+        return showToast('Por favor, selecione a marca e insira um modelo.', 'error'); 
+    }
+
+    try {
+        const token = localStorage.getItem('token');
+        const res = await fetch(`/api/attributes/models`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ name, brand_name })
+        });
+        
+        if (res.ok) {
+            showToast('Modelo salvo com sucesso!', 'success');
+            input.value = '';
+            disableAllButtons();
+            setTimeout(() => window.location.reload(), 1500);
+        } else {
+            resetSavingState();
+            showToast('Erro ao cadastrar.', 'error');
+        }
+    } catch (e) {
+        resetSavingState();
+        showToast('Erro ao conectar com o servidor.', 'error');
+    }
+}
