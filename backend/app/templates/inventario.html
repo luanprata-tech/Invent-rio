@@ -680,7 +680,7 @@ document.addEventListener('DOMContentLoaded', aplicarFiltros);
             <select name="model" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
               <option value="">Selecione o modelo...</option>
               {% for item in models %}
-              <option value="{{ item.name }}" data-brand="{{ item.brand_name }}">{{ item.name }}</option>
+              <option value="{{ item.name }}" data-brand="{{ item.brand.name if item.brand else '' }}">{{ item.name }}</option>
               {% endfor %}
             </select>
           </div>
@@ -914,7 +914,7 @@ function togglePatPendente(checkbox) {
           <select id="select-brand-for-model" class="rounded-lg border-outline-variant focus:border-primary focus:ring-primary/20 p-2 text-body-sm">
             <option value="">Marca...</option>
             {% for item in brands %}
-            <option value="{{ item.name }}">{{ item.name }}</option>
+            <option value="{{ item.id }}">{{ item.name }}</option>
             {% endfor %}
           </select>
           <input type="text" id="input-modelo" placeholder="Ex: OptiPlex 7090" class="flex-1 rounded-lg border-outline-variant focus:border-primary focus:ring-primary/20 p-2">
@@ -1121,7 +1121,7 @@ function togglePatPendente(checkbox) {
             <select name="model" class="w-full h-9 px-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline border-0">
               <option value="">Selecione o modelo...</option>
               {% for item in models %}
-              <option value="{{ item.name }}" data-brand="{{ item.brand_name }}">{{ item.name }}</option>
+              <option value="{{ item.name }}" data-brand="{{ item.brand.name if item.brand else '' }}">{{ item.name }}</option>
               {% endfor %}
             </select>
           </div>

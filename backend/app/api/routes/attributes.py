@@ -19,12 +19,12 @@ class AttributeResponse(BaseModel):
 
 class ModelCreate(BaseModel):
     name: str
-    brand_name: str
+    brand_id: int
 
 class ModelResponse(BaseModel):
     id: int
     name: str
-    brand_name: str | None = None
+    brand_id: int | None = None
     class Config:
         orm_mode = True
 
@@ -48,7 +48,7 @@ def get_models(db: Session = Depends(get_db)):
 
 @router.post("/models", response_model=ModelResponse)
 def create_model(item: ModelCreate, db: Session = Depends(get_db)):
-    db_item = ModelAttr(name=item.name, brand_name=item.brand_name)
+    db_item = ModelAttr(name=item.name, brand_id=item.brand_id)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
@@ -118,7 +118,7 @@ def update_modelattr(item_id: int, item: ModelCreate, db: Session = Depends(get_
     if not db_item:
         raise HTTPException(status_code=404, detail="Item not found")
     db_item.name = item.name
-    db_item.brand_name = item.brand_name
+    db_item.brand_id = item.brand_id
     db.commit()
     db.refresh(db_item)
     return db_item
