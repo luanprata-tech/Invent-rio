@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from fastapi import FastAPI, Request, Depends
 from sqlalchemy.orm import Session
 from app.api.deps import get_db
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from app.core.config import settings
@@ -45,6 +45,13 @@ app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
 app.include_router(attributes.router, prefix="/api/attributes", tags=["attributes"])
 app.include_router(assets.router, prefix="/api/assets", tags=["assets"])
 
+@app.get("/manifest.json", include_in_schema=False)
+def get_manifest():
+    return FileResponse("app/static/manifest.json")
+
+@app.get("/sw.js", include_in_schema=False)
+def get_sw():
+    return FileResponse("app/static/sw.js", media_type="application/javascript")
 @app.get("/", response_class=HTMLResponse)
 def read_root(request: Request):
     return templates.TemplateResponse(request=request, name="login.html")

@@ -1,6 +1,15 @@
 <!DOCTYPE html><html lang="pt-BR" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_blank" name="shell-type"><link rel="stylesheet" href="/static/css/style.css"><script src="https://cdn.tailwindcss.com"></script><script src="/static/js/tailwind-config.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex min-h-screen items-center justify-center p-gutter"><main class="w-full max-w-md"><div class="flex flex-col w-full">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<link rel="manifest" href="/manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex min-h-screen items-center justify-center p-gutter"><main class="w-full max-w-md"><div class="flex flex-col w-full">
 <div class="bg-surface-container-lowest shadow-xl rounded-xl p-space-xl flex flex-col gap-space-lg relative overflow-hidden">
 <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary-container"></div>
 
@@ -18,7 +27,7 @@
 
 </div>
 <div class="flex items-center justify-center gap-4 py-space-md text-on-surface-variant font-code-sm text-code-sm">
-<span class="">SIGPAT-TI v4.12.0</span>
+<span class="">InvenTI v4.12.0</span>
 <span class="">•</span>
 <span class="">SLA 99.98%</span>
 <span class="">•</span>
