@@ -448,9 +448,9 @@ async function salvarModelo(btn) {
     const input = document.getElementById('input-modelo');
     const brandSelect = document.getElementById('select-brand-for-model');
     const name = input.value.trim();
-    const brand_name = brandSelect ? brandSelect.value : '';
+    const brand_id = brandSelect ? parseInt(brandSelect.value) : null;
     
-    if (!name || !brand_name) { 
+    if (!name || isNaN(brand_id)) { 
         resetSavingState(); 
         return showToast('Por favor, selecione a marca e insira um modelo.', 'error'); 
     }
@@ -463,7 +463,7 @@ async function salvarModelo(btn) {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ name, brand_name })
+            body: JSON.stringify({ name, brand_id })
         });
         
         if (res.ok) {
