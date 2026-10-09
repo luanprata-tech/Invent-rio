@@ -58,7 +58,7 @@
 
         if (response.ok) {
           const data = await response.json();
-          localStorage.setItem('token', data.access_token);
+          sessionStorage.setItem('sessionActive', 'true');
           window.location.href = '/inventario';
         } else {
           alert('Usuário ou senha incorretos!');

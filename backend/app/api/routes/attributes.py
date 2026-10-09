@@ -3,10 +3,10 @@ from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import List
 
-from app.api.deps import get_db
+from app.api.deps import get_db, get_current_user
 from app.models.attributes import Category, Brand, ModelAttr, Department, FundingSource
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(get_current_user)])
 
 class AttributeCreate(BaseModel):
     name: str

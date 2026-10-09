@@ -34,4 +34,40 @@
 </a>
 </nav>
 </div>
+<div class="p-space-md border-t border-outline-variant/30">
+<a class="group flex items-center justify-between px-space-md py-space-md rounded-lg text-error hover:bg-error/10 transition-all" href="javascript:void(0)" onclick="handleLogout()">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-body-md text-body-md font-medium">Sair</span>
+</div>
+</a>
+</div>
 </aside>
+<script>
+    if (!sessionStorage.getItem('sessionActive')) {
+        document.cookie = "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        if (window.location.pathname !== '/') {
+            window.location.href = '/';
+        }
+    }
+
+    let inactivityTimer;
+    function resetTimer() {
+        clearTimeout(inactivityTimer);
+        inactivityTimer = setTimeout(() => {
+            handleLogout();
+        }, 30 * 60 * 1000);
+    }
+    
+    window.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+    document.onclick = resetTimer;
+    document.onscroll = resetTimer;
+
+    function handleLogout() {
+        document.cookie = "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        sessionStorage.removeItem('sessionActive');
+        window.location.href = '/';
+    }
+</script>

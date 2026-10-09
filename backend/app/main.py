@@ -2,7 +2,7 @@ import asyncio
 from pydantic import BaseModel
 from fastapi import FastAPI, Request, Depends
 from sqlalchemy.orm import Session
-from app.api.deps import get_db
+from app.api.deps import get_db, get_current_user
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -57,7 +57,7 @@ def read_root(request: Request):
     return templates.TemplateResponse(request=request, name="login.html")
 
 @app.get("/inventario", response_class=HTMLResponse)
-def read_inventario(request: Request, db: Session = Depends(get_db)):
+def read_inventario(request: Request, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     assets = db.query(Asset).filter(Asset.is_deleted == False).all()
     
     total = len(assets)
@@ -105,7 +105,7 @@ def read_inventario(request: Request, db: Session = Depends(get_db)):
     )
 
 @app.get("/ips", response_class=HTMLResponse)
-def read_ips(request: Request, db: Session = Depends(get_db), subnet: str = "172.23.6.0/24"):
+def read_ips(request: Request, db: Session = Depends(get_db), current_user: User = Depends(get_current_user), subnet: str = "172.23.6.0/24"):
     prefix = subnet.split('.0/24')[0] + '.'
     ips_list = db.query(IP).filter(IP.ip_address.like(f"{prefix}%")).all()
     ips_list.sort(key=lambda ip: int(ip.ip_address.split('.')[-1]))
@@ -151,7 +151,7 @@ async def ping_ip(ip_address: str):
     return ip_address, proc.returncode == 0
 
 @app.post("/api/ips/ping")
-async def ping_subnet(req: PingRequest, db: Session = Depends(get_db)):
+async def ping_subnet(req: PingRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     prefix = req.subnet.split('.0/24')[0] + '.'
     ips_to_ping = [f"{prefix}{i}" for i in range(1, 255)]
     results = await asyncio.gather(*(ping_ip(ip) for ip in ips_to_ping))
@@ -177,7 +177,7 @@ class AllocateIPRequest(BaseModel):
     subnet: str
 
 @app.post("/api/ips/allocate")
-def allocate_ip(req: AllocateIPRequest, db: Session = Depends(get_db)):
+def allocate_ip(req: AllocateIPRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     # Create or update IP
     db_ip = db.query(IP).filter(IP.ip_address == req.ip_address).first()
     if not db_ip:
@@ -193,7 +193,7 @@ class ReleaseIPRequest(BaseModel):
     ip_address: str
 
 @app.post("/api/ips/release")
-def release_ip(req: ReleaseIPRequest, db: Session = Depends(get_db)):
+def release_ip(req: ReleaseIPRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     db_ip = db.query(IP).filter(IP.ip_address == req.ip_address).first()
     if db_ip:
         db_ip.status = 'Livre'
