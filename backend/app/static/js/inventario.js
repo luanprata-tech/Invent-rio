@@ -99,12 +99,10 @@ async function salvarAtributo(endpoint, inputId, btn) {
     if (!name) { resetSavingState(); return showToast('Por favor, insira um nome.', 'error'); }
 
     try {
-        const token = localStorage.getItem('token');
         const res = await fetch(`/api/attributes/${endpoint}`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({ name })
         });
@@ -146,12 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const token = localStorage.getItem('token');
                 const res = await fetch('/api/assets/', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(data)
                 });
@@ -198,12 +194,10 @@ async function confirmarExclusaoAtributo() {
     const id = document.getElementById('delete-attr-id').value;
     
     try {
-        const token = localStorage.getItem('token');
         const url = endpoint === 'assets' ? `/api/assets/${id}` : `/api/attributes/${endpoint}/${id}`;
         
         const res = await fetch(url, {
-            method: 'DELETE',
-            headers: { 'Authorization': `Bearer ${token}` }
+            method: 'DELETE'
         });
         if (res.ok) {
             fecharModalDeleteAtributo();
@@ -254,12 +248,10 @@ async function salvarEdicaoAtributo(btn) {
     }
     
     try {
-        const token = localStorage.getItem('token');
         const res = await fetch(`/api/attributes/${endpoint}/${id}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({ name: newName })
         });
@@ -283,10 +275,7 @@ async function salvarEdicaoAtributo(btn) {
 
 async function abrirDetalhesEquipamento(id) {
     try {
-        const token = localStorage.getItem('token');
-        const res = await fetch(`/api/assets/${id}`, {
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
+        const res = await fetch(`/api/assets/${id}`);
         if (!res.ok) {
             resetSavingState();
             showToast('Erro ao carregar detalhes do equipamento.', 'error');
@@ -377,12 +366,10 @@ async function salvarEdicaoEquipamento(btn) {
     }
 
     try {
-        const token = localStorage.getItem('token');
         const res = await fetch(`/api/assets/${id}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         });
@@ -456,12 +443,10 @@ async function salvarModelo(btn) {
     }
 
     try {
-        const token = localStorage.getItem('token');
         const res = await fetch(`/api/attributes/models`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({ name, brand_id })
         });
