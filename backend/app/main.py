@@ -168,9 +168,9 @@ async def ping_ip(ip_address: str):
     stdout, _ = await proc.communicate()
     out_str = stdout.decode('utf-8', errors='ignore').lower()
     
-    if 'unreachable' in out_str or 'inacess' in out_str:
+    if 'unreachable' in out_str or 'inacess' in out_str or '100% packet loss' in out_str or '100% loss' in out_str:
         return ip_address, 'unreachable'
-    elif proc.returncode == 0 and 'esgotado' not in out_str and 'time out' not in out_str and '100% packet loss' not in out_str:
+    elif proc.returncode == 0 and 'esgotado' not in out_str and 'time out' not in out_str:
         return ip_address, 'up'
     else:
         return ip_address, 'timeout' 
