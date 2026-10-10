@@ -110,12 +110,24 @@ def read_inventario(request: Request, db: Session = Depends(get_db), current_use
 def read_ips(request: Request, db: Session = Depends(get_db), current_user: User = Depends(get_current_user), subnet: str = "172.23.6.0/24"):
     prefix = subnet.split('.0/24')[0] + '.'
     ips_list = db.query(IP).filter(IP.ip_address.like(f"{prefix}%")).all()
-    ips_list.sort(key=lambda ip: int(ip.ip_address.split('.')[-1]))
-    
     ip_dict = {ip.ip_address: ip for ip in ips_list}
     
+    # Adicionar todos os IPs faltantes ao banco de dados permanentemente
+    if len(ips_list) < 254:
+        for i in range(1, 255):
+            full_ip = f"{prefix}{i}"
+            if full_ip not in ip_dict:
+                new_ip = IP(ip_address=full_ip, subnet=subnet, status="Livre", last_ping_result="unreachable")
+                db.add(new_ip)
+        db.commit()
+        # Recarregar os IPs do banco apos inserção
+        ips_list = db.query(IP).filter(IP.ip_address.like(f"{prefix}%")).all()
+        ip_dict = {ip.ip_address: ip for ip in ips_list}
+    
+    ips_list.sort(key=lambda ip: int(ip.ip_address.split('.')[-1]))
+    
     allocated_count = sum(1 for ip in ips_list if ip.status in ['Alocado', 'Reservado'])
-    falso_livre_count = sum(1 for ip in ips_list if ip.status == 'Livre' and ip.last_ping_result == True)
+    falso_livre_count = sum(1 for ip in ips_list if ip.status == 'Livre' and (ip.last_ping_result == 'up' or ip.last_ping_result == True))
     total_utilizable = 254
     livres_count = total_utilizable - allocated_count - falso_livre_count
     allocated_pct = round((allocated_count / total_utilizable) * 100, 1)
