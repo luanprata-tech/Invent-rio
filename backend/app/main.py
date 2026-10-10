@@ -1,4 +1,6 @@
 import asyncio
+import platform
+import platform
 from pydantic import BaseModel
 from fastapi import FastAPI, Request, Depends
 from sqlalchemy.orm import Session
@@ -142,13 +144,24 @@ class PingRequest(BaseModel):
     subnet: str
 
 async def ping_ip(ip_address: str):
+    import platform
+    is_windows = platform.system().lower() == "windows"
+    cmd = ['ping', '-n', '1', '-w', '1000', ip_address] if is_windows else ['ping', '-c', '1', '-W', '1', ip_address]
+    
     proc = await asyncio.create_subprocess_exec(
-        'ping', '-c', '1', '-W', '1', ip_address,
-        stdout=asyncio.subprocess.DEVNULL,
-        stderr=asyncio.subprocess.DEVNULL
+        *cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    await proc.wait()
-    return ip_address, proc.returncode == 0
+    stdout, _ = await proc.communicate()
+    out_str = stdout.decode('utf-8', errors='ignore').lower()
+    
+    if 'unreachable' in out_str or 'inacess' in out_str:
+        return ip_address, 'unreachable'
+    elif proc.returncode == 0 and 'esgotado' not in out_str and 'time out' not in out_str and '100% packet loss' not in out_str:
+        return ip_address, 'up'
+    else:
+        return ip_address, 'timeout' 
 
 @app.post("/api/ips/ping")
 async def ping_subnet(req: PingRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
@@ -160,12 +173,12 @@ async def ping_subnet(req: PingRequest, db: Session = Depends(get_db), current_u
     db_ips = db.query(IP).filter(IP.ip_address.like(f"{prefix}%")).all()
     db_ips_dict = {ip.ip_address: ip for ip in db_ips}
     
-    for ip_str, is_up in ping_status.items():
+    for ip_str, status_str in ping_status.items():
         if ip_str in db_ips_dict:
-            db_ips_dict[ip_str].last_ping_result = is_up
+            db_ips_dict[ip_str].last_ping_result = status_str
         else:
-            if is_up:
-                new_ip = IP(ip_address=ip_str, subnet=req.subnet, status='Livre', last_ping_result=True)
+            if status_str != 'timeout':
+                new_ip = IP(ip_address=ip_str, subnet=req.subnet, status='Livre', last_ping_result=status_str)
                 db.add(new_ip)
     
     db.commit()
@@ -199,4 +212,20 @@ def release_ip(req: ReleaseIPRequest, db: Session = Depends(get_db), current_use
         db_ip.status = 'Livre'
         db_ip.asset_id = None
         db.commit()
+    return {"success": True}
+
+class ReserveIPRequest(BaseModel):
+    ip_address: str
+    subnet: str
+
+@app.post("/api/ips/reserve")
+def reserve_ip(req: ReserveIPRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    db_ip = db.query(IP).filter(IP.ip_address == req.ip_address).first()
+    if not db_ip:
+        db_ip = IP(ip_address=req.ip_address, subnet=req.subnet, status='Reservado', asset_id=None)
+        db.add(db_ip)
+    else:
+        db_ip.status = 'Reservado'
+        db_ip.asset_id = None
+    db.commit()
     return {"success": True}

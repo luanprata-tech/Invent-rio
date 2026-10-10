@@ -10,6 +10,6 @@ class IP(Base):
     subnet = Column(String(255), index=True)
     status = Column(String(255), default="Disponível") # Disponível, Alocado, Reservado
     asset_id = Column(Integer, ForeignKey("assets.id"), nullable=True)
-    last_ping_result = Column(Boolean, nullable=True)
+    last_ping_result = Column(String(50), nullable=True)
 
     asset = relationship("Asset", back_populates="ips")
